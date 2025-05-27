@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colegio Tlahtoani - Menú Escolar</title>
+    <style>
+        /* Estilos generales */
+        :root {
+            --color-primario: #A5D6A7; /* Verde limón claro */
+            --color-secundario: #FFD54F; /* Amarillo vibrante */
+            --color-terciario: #4FC3F7; /* Azul cielo */
+            --color-fondo: #FFF9C4; /* Amarillo claro animado */
+            --color-texto: #333;
+            --color-destacado: #FF9800; /* Naranja vibrante (nuevo) */
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+        }
+        header {
+            background-color: var(--color-primario); /* Verde limón */
+            color: var(--color-texto);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
+            color: #2E7D32; /* Verde oscuro para contraste */
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://via.placeholder.com/1200x400?text=Menú+Semanal');
+            background-size: cover;
+            color: var(--color-texto);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-destacado); /* Cambiado a naranja (#FF9800) */
+        }
+
+        /* Menú semanal */
+        .menu-semanal {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+        .dia {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            width: 280px;
+            padding: 1.5rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid var(--color-secundario);
+        }
+        .dia:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+        }
+        .dia h3 {
+            color: var(--color-terciario); /* Azul cielo */
+            border-bottom: 3px solid var(--color-secundario);
+            padding-bottom: 0.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 0;
+        }
+        .comida {
+            margin: 1.5rem 0;
+        }
+        .comida h4 {
+            color: var(--color-destacado); /* Naranja (coherente con el título) */
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+        }
+        .comida p {
+            margin-left: 1.8rem;
+        }
+
+        /* Sección nutrición */
+        .nutricion {
+            background-color: var(--color-terciario); /* Azul cielo */
+            color: white;
+            padding: 2.5rem 1rem;
+            margin: 2rem 0;
+            text-align: center;
+            border-radius: 10px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .nutricion h2 {
+            color: var(--color-secundario); /* Amarillo vibrante */
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-primario); /* Verde limón */
+            color: var(--color-texto);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dia {
+                width: 100%;
+            }
+            .nutricion {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Colegio Tlahtoani</div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Menú Nutritivo Semanal</h1>
+        <p>Alimentos balanceados para el desarrollo de nuestros estudiantes</p>
+    </section>
+
+    <!-- Menú Semanal -->
+    <section class="menu-semanal">
+        <!-- Lunes -->
+        <div class="dia">
+            <h3>Lunes</h3>
+            <div class="comida">
+                <h4>🍳 Desayuno</h4>
+                <p>Motete de frijoles con queso</p>
+                <p>Fruta de temporada</p>
+            </div>
+            <div class="comida">
+                <h4>🍲 Comida</h4>
+                <p>Ensalada de atún con galletas saladas</p>
+                <p>Fruta de temporada</p>
+            </div>
+        </div>
+
+        <!-- Martes -->
+        <div class="dia">
+            <h3>Martes</h3>
+            <div class="comida">
+                <h4>🍳 Desayuno</h4>
+                <p>Huevo con jamón, tortillas</p>
+                <p>Fruta de temporada</p>
+            </div>
+            <div class="comida">
+                <h4>🍲 Comida</h4>
+                <p>Arrechera con frijoles</p>
+                <p>Tortillas y fruta</p>
+            </div>
+        </div>
+
+        <!-- Miércoles -->
+        <div class="dia">
+            <h3>Miércoles</h3>
+            <div class="comida">
+                <h4>🍳 Desayuno</h4>
+                <p>Quesadillas con jitomate</p>
+            </div>
+            <div class="comida">
+                <h4>🍲 Comida</h4>
+                <p>Dedos de pescado</p>
+                <p>Calabaza cocida y tortillas</p>
+            </div>
+        </div>
+
+        <!-- Jueves -->
+        <div class="dia">
+            <h3>Jueves</h3>
+            <div class="comida">
+                <h4>🍳 Desayuno</h4>
+                <p>Huevo con frijoles</p>
+                <p>Fruta de temporada</p>
+            </div>
+            <div class="comida">
+                <h4>🍲 Comida</h4>
+                <p>Tortas de coliflor con salsa</p>
+                <p>Tiras de zanahoria</p>
+            </div>
+        </div>
+
+        <!-- Viernes -->
+        <div class="dia">
+            <h3>Viernes</h3>
+            <div class="comida">
+                <h4>🍳 Desayuno</h4>
+                <p>Sandwich de jamón con lechuga</p>
+                <p>Fruta de temporada</p>
+            </div>
+            <div class="comida">
+                <h4>🍲 Comida</h4>
+                <p>Pollo en tiras</p>
+                <p>Sopa de arroz y calabaza</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Nutrición -->
+    <section class="nutricion">
+        <h2>¡Alimentación saludable, mente activa!</h2>
+        <p>Cada platillo está diseñado para aportar energía y nutrientes esenciales.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Colegio Tlahtoani</p>
+    </footer>
+</body>
+</html>
