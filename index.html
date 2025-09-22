@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Colegio Tlahtoani - Menú Miércoles a Viernes</title>
+    <title>Colegio Tlahtoani - Menú Digital</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-primario: #4CAF50;
-            --color-secundario: #FFC107;
-            --color-terciario: #2196F3;
-            --color-fondo: #F5F5F5;
+            --color-primario: #4CAF50; /* Verde más vibrante */
+            --color-secundario: #FFC107; /* Amarillo dorado */
+            --color-terciario: #2196F3; /* Azul brillante */
+            --color-fondo: #F5F5F5; /* Fondo más neutral */
             --color-texto: #333;
-            --color-destacado: #FF5722;
+            --color-destacado: #FF5722; /* Naranja intenso */
             --color-card: #FFFFFF;
             --sombra: 0 8px 16px rgba(0,0,0,0.1);
         }
@@ -72,12 +72,13 @@
             margin: 0 auto;
         }
         
+        /* Diseño del menú semanal */
         .menu-semanal {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             padding: 2rem;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
         
@@ -202,10 +203,46 @@
 
     <section class="hero">
         <h1>Menú Nutritivo Semanal</h1>
-        <p>Miércoles a Viernes - Alimentos balanceados para el desarrollo integral</p>
+        <p>Alimentos balanceados para el desarrollo integral de nuestros estudiantes</p>
     </section>
 
     <section class="menu-semanal">
+        <!-- Lunes -->
+        <div class="dia">
+            <div class="dia-header">
+                <span>📅</span> Lunes
+            </div>
+            <div class="comidas-container">
+                <div class="comida">
+                    <h4>🍳 Desayuno</h4>
+                    <p>Huevo con tortilla</p>
+                    <p>Piña en cuadritos</p>
+                </div>
+                <div class="comida">
+                    <h4>🍛 Comida</h4>
+                    <p>Picadillo con arroz</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Martes -->
+        <div class="dia">
+            <div class="dia-header">
+                <span>📅</span> Martes
+            </div>
+            <div class="comidas-container">
+                <div class="comida">
+                    <h4>🧀 Desayuno</h4>
+                    <p>Quesadillas</p>
+                    <p>Manzana en rebanadas</p>
+                </div>
+                <div class="comida">
+                    <h4>🍖 Comida</h4>
+                    <p>Arrechera con frijoles de la olla</p>
+                </div>
+            </div>
+        </div>
+
         <!-- Miércoles -->
         <div class="dia">
             <div class="dia-header">
@@ -213,14 +250,12 @@
             </div>
             <div class="comidas-container">
                 <div class="comida">
-                    <h4>🍳 Desayuno</h4>
-                    <p>Huevo con salchicha</p>
-                    <p>Una o dos tortillas</p>
-                    <p>Fruta de temporada</p>
+                    <h4>🥪 Desayuno</h4>
+                    <p>Sandwich de jamón</p>
                 </div>
                 <div class="comida">
                     <h4>🥗 Comida</h4>
-                    <p>Ensalada de atún con galletas saladas</p>
+                    <p>Morisqueta y brócoli</p>
                 </div>
             </div>
         </div>
@@ -232,13 +267,15 @@
             </div>
             <div class="comidas-container">
                 <div class="comida">
-                    <h4>🌯 Desayuno</h4>
-                    <p>Enfrijoladas con queso</p>
-                    <p>Fruta de temporada</p>
+                    <h4>🍳 Desayuno</h4>
+                    <p>Huevo en salsa de jitomate</p>
+                    <p>Frijoles</p>
+                    <p>Una o dos tortillas</p>
                 </div>
                 <div class="comida">
-                    <h4>🍝 Comida</h4>
-                    <p>Espagueti a la boloñesa</p>
+                    <h4>🍜 Comida</h4>
+                    <p>Fideos con verdura</p>
+                    <p>Carne de res</p>
                 </div>
             </div>
         </div>
@@ -250,13 +287,13 @@
             </div>
             <div class="comidas-container">
                 <div class="comida">
-                    <h4>🧇 Desayuno</h4>
-                    <p>Wafles con fruta</p>
+                    <h4>🥞 Desayuno</h4>
+                    <p>Hot cakes con fruta</p>
                 </div>
                 <div class="comida">
-                    <h4>🍲 Comida</h4>
-                    <p>Sopa de lentejas</p>
-                    <p>Arroz con zanahoria</p>
+                    <h4>🐟 Comida</h4>
+                    <p>Croquetas con atún y verdura</p>
+                    <p>Galletas saladas</p>
                 </div>
             </div>
         </div>
