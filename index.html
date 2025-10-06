@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Colegio Tlahtoani – Menú Saludable</title>
+  <title>Menú Escolar - Colegio Tlahtoani</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -13,7 +13,6 @@
       --verde-claro: #66BB6A;
       --amarillo: #FDD835;
       --naranja: #FB8C00;
-      --rosa: #E91E63;
 
       --blanco: #FFFFFF;
       --gris-muy-claro: #FAFAFA;
@@ -25,9 +24,6 @@
       --bg: var(--gris-muy-claro);
       --card-bg: var(--blanco);
       --shadow: rgba(33, 33, 33, 0.1);
-
-      --gradient-1: linear-gradient(135deg, var(--azul-primario), var(--azul-oscuro));
-      --gradient-2: linear-gradient(135deg, var(--verde-sec), var(--verde-claro));
       --gradient-accent: linear-gradient(135deg, var(--naranja), var(--amarillo));
     }
 
@@ -49,38 +45,14 @@
       margin: auto;
       padding: 16px;
     }
-    @media (min-width: 768px) {
-      .container {
-        padding: 24px;
-      }
-    }
 
-    header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--azul-primario);
-    }
-    .logo::after {
-      content: " 🍎";
-    }
-    .title {
-      font-size: 1.8rem;
-      margin-top: 8px;
-    }
-
-    .illustration {
+    /* Imagen portada */
+    .hero-img {
       width: 100%;
       height: auto;
-      max-height: 180px; /* limita altura para que no ocupe demasiado */
-      object-fit: cover;
       display: block;
-      border-radius: 12px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 16px var(--shadow);
+      border-radius: 0;
+      margin-bottom: 32px;
     }
 
     .menu-grid {
@@ -157,15 +129,10 @@
   </style>
 </head>
 <body>
+  <!-- Imagen de portada como encabezado -->
+  <img src="imagenmenu.png" alt="Menú Escolar Ilustrado" class="hero-img">
+
   <div class="container">
-    <header>
-      <div class="logo">Colegio Tlahtoani</div>
-      <div class="title">Menú Saludable Semanal</div>
-    </header>
-
-    <!-- Aquí se incluye la imagen que enviaste -->
-    <img src="imagenmenu.png" alt="Menú Escolar Ilustrado" class="illustration">
-
     <div class="menu-grid">
       <!-- Lunes -->
       <div class="dia-card">
