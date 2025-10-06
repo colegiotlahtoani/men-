@@ -1,240 +1,286 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Colegio Tlahtoani - Menú Escolar</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Colegio Tlahtoani – Menú Escolar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: linear-gradient(to right, #f8f9fd, #eef2f8);
-      --card-radius: 20px;
-      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      /* Paleta para menú escolar, basada en tu ejemplo */
+      --azul-primario: #1E88E5;
+      --azul-oscuro: #1565C0;
+      --celeste-claro: #64B5F6;
+      --verde-secundario: #43A047;
+      --verde-claro: #66BB6A;
+      --amarillo: #FDD835;
+      --naranja: #FB8C00;
+
+      --blanco: #FFFFFF;
+      --gris-muy-claro: #FAFAFA;
+      --gris-claro: #F5F5F5;
+      --gris-medio: #E0E0E0;
+      --gris-oscuro: #757575;
+      --texto-oscuro: #212121;
+      --texto-claro: #616161;
+
+      /* Variables de aplicación */
+      --bg: var(--gris-muy-claro);
+      --card-bg: var(--blanco);
+      --shadow-color: rgba(33, 33, 33, 0.1);
+
+      /* Gradientes útiles */
+      --gradient-primario: linear-gradient(135deg, var(--azul-primario), var(--azul-oscuro));
+      --gradient-secundario: linear-gradient(135deg, var(--verde-secundario), var(--verde-claro));
+      --gradient-accent: linear-gradient(135deg, var(--naranja), var(--amarillo));
     }
 
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Fredoka', sans-serif;
+      padding: 0;
+    }
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       background: var(--bg);
-      color: #333;
+      color: var(--texto-oscuro);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+    @media (min-width: 768px) {
+      .container {
+        padding: 24px;
+      }
     }
 
     header {
+      background: var(--gradient-primario);
+      color: var(--blanco);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 32px var(--shadow-color);
       text-align: center;
-      padding: 3rem 1rem 1rem;
+      margin-bottom: 24px;
     }
-
-    .logo {
-      font-size: 3rem;
-      font-weight: bold;
-      color: #ff6f61;
+    header .logo {
+      font-size: 2.8rem;
+      font-weight: 700;
     }
-
-    .logo::after {
+    header .logo::after {
       content: " 🍎";
     }
-
-    .hero {
-      text-align: center;
-      padding: 1rem 2rem 3rem;
+    header h1 {
+      margin-top: 8px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    header p.lead {
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 1.1rem;
+      font-weight: 400;
     }
 
-    .hero h1 {
-      font-size: 2.6rem;
-      color: #2e2e2e;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      color: #666;
-    }
-
-    .menu-semanal {
+    .menu-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      padding: 2rem;
-      max-width: 1400px;
-      margin: auto;
+      gap: 24px;
+    }
+    @media (min-width: 768px) {
+      .menu-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
     }
 
-    .dia {
-      border-radius: var(--card-radius);
-      padding: 2rem 1.5rem;
-      box-shadow: var(--shadow);
-      background: white;
-      transition: transform 0.3s ease;
-      position: relative;
+    .dia-card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px var(--shadow-color);
+      border: 1px solid var(--gris-medio);
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    .dia:hover {
+    .dia-card:hover {
       transform: translateY(-6px);
+      box-shadow: 0 8px 30px rgba(33, 33, 33, 0.15);
     }
-
-    .dia::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10px;
-      background: var(--accent);
-    }
-
-    .dia[data-dia="lunes"] { --accent: #f0932b; }
-    .dia[data-dia="martes"] { --accent: #22a6b3; }
-    .dia[data-dia="miércoles"] { --accent: #6c5ce7; }
-    .dia[data-dia="jueves"] { --accent: #00b894; }
-    .dia[data-dia="viernes"] { --accent: #e84393; }
 
     .dia-header {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      color: var(--accent);
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      background: var(--gradient-primario);
+      color: var(--blanco);
+      padding: 16px;
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
     }
 
+    .comidas {
+      padding: 16px;
+    }
     .comida {
-      margin-bottom: 1.2rem;
+      margin-bottom: 16px;
     }
-
     .comida h4 {
       font-size: 1.2rem;
-      margin-bottom: 0.4rem;
-      color: #444;
+      color: var(--naranja);
+      margin-bottom: 8px;
     }
-
     .comida p {
-      margin-left: 1rem;
-      margin-bottom: 0.4rem;
+      margin-left: 16px;
+      margin-bottom: 6px;
       position: relative;
+      color: var(--texto-oscuro);
     }
-
     .comida p::before {
-      content: "🍽️";
+      content: "•";
       position: absolute;
-      left: -1.6rem;
+      left: -16px;
+      color: var(--azul-primario);
+      font-weight: bold;
+    }
+    .comida:last-child {
+      margin-bottom: 0;
     }
 
     .nutricion {
-      background: linear-gradient(145deg, #ffeaa7, #fab1a0);
-      padding: 2.5rem 2rem;
+      background: var(--gradient-accent);
+      color: var(--blanco);
+      padding: 24px;
+      margin: 32px 0;
+      border-radius: 16px;
       text-align: center;
-      border-radius: var(--card-radius);
-      margin: 4rem auto 2rem;
-      max-width: 1000px;
-      color: #2d3436;
+      box-shadow: 0 8px 24px var(--shadow-color);
     }
-
     .nutricion h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .nutricion p {
+      font-size: 1rem;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
-      background-color: #fff;
-      font-weight: 600;
-      color: #888;
+      margin-top: 24px;
+      font-size: 0.9rem;
+      color: var(--gris-oscuro);
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">Colegio Tlahtoani</div>
-  </header>
+  <div class="container">
+    <header>
+      <div class="logo">Colegio Tlahtoani</div>
+      <h1>Menú Nutritivo Semanal</h1>
+      <p class="lead">Alimentos balanceados para el desarrollo integral de nuestros estudiantes</p>
+    </header>
 
-  <section class="hero">
-    <h1>Menú Nutritivo Semanal</h1>
-    <p>Deliciosos y balanceados platillos para una semana llena de energía y salud</p>
-  </section>
-
-  <section class="menu-semanal">
-    <div class="dia" data-dia="lunes">
-      <div class="dia-header">📅 Lunes</div>
-      <div class="comida">
-        <h4>🍳 Desayuno</h4>
-        <p>Moquete de frijoles con queso</p>
-        <p>Piña 🍍 en cubitos</p>
+    <div class="menu-grid">
+      <!-- Lunes -->
+      <div class="dia-card">
+        <div class="dia-header">Lunes</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Moquete de frijoles con queso</p>
+            <p>Piña 🍍 en cubitos</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Caldo de pollo con verdura</p>
+            <p>Una o dos tortillas</p>
+          </div>
+        </div>
       </div>
-      <div class="comida">
-        <h4>🍲 Comida</h4>
-        <p>Caldo de pollo con verdura</p>
-        <p>Una o dos tortillas</p>
+
+      <!-- Martes -->
+      <div class="dia-card">
+        <div class="dia-header">Martes</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Sándwich de jamón</p>
+            <p>Pepino</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Tinga de pollo con arroz y verdura</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Miércoles -->
+      <div class="dia-card">
+        <div class="dia-header">Miércoles</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Huevo con jamón</p>
+            <p>Una o dos tortillas</p>
+            <p>Jícama</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Ceviche de soya con atún</p>
+            <p>Jitomate, cebolla, cilantro</p>
+            <p>Galletas saladas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jueves -->
+      <div class="dia-card">
+        <div class="dia-header">Jueves</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Avena</p>
+            <p>Galletas Marías</p>
+            <p>Manzana</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Espejuelo con carne molida</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Viernes -->
+      <div class="dia-card">
+        <div class="dia-header">Viernes</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>No enfrijoladas con queso</p>
+            <p>Pepino</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Filete de pollo con sopa de codito</p>
+            <p>Verduras</p>
+          </div>
+        </div>
       </div>
     </div>
 
-    <div class="dia" data-dia="martes">
-      <div class="dia-header">📅 Martes</div>
-      <div class="comida">
-        <h4>🥪 Desayuno</h4>
-        <p>Sándwich de jamón</p>
-        <p>Pepino</p>
-      </div>
-      <div class="comida">
-        <h4>🍛 Comida</h4>
-        <p>Tinga de pollo con arroz y verdura</p>
-      </div>
-    </div>
+    <section class="nutricion">
+      <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
+      <p>Cada platillo está cuidadosamente diseñado por nutricionistas para aportar la energía y nutrientes esenciales que nuestros estudiantes necesitan.</p>
+    </section>
 
-    <div class="dia" data-dia="miércoles">
-      <div class="dia-header">📅 Miércoles</div>
-      <div class="comida">
-        <h4>🍳 Desayuno</h4>
-        <p>Huevo con jamón</p>
-        <p>Una o dos tortillas</p>
-        <p>Jícama</p>
-      </div>
-      <div class="comida">
-        <h4>🐟 Comida</h4>
-        <p>Ceviche de soya con atún</p>
-        <p>Jitomate, cebolla, cilantro</p>
-        <p>Galletas saladas</p>
-      </div>
-    </div>
-
-    <div class="dia" data-dia="jueves">
-      <div class="dia-header">📅 Jueves</div>
-      <div class="comida">
-        <h4>🥣 Desayuno</h4>
-        <p>Avena</p>
-        <p>Galletas Marías</p>
-        <p>Manzana</p>
-      </div>
-      <div class="comida">
-        <h4>🍲 Comida</h4>
-        <p>Espejuelo con carne molida</p>
-      </div>
-    </div>
-
-    <div class="dia" data-dia="viernes">
-      <div class="dia-header">📅 Viernes</div>
-      <div class="comida">
-        <h4>🌯 Desayuno</h4>
-        <p>No enfrijoladas con queso</p>
-        <p>Pepino</p>
-      </div>
-      <div class="comida">
-        <h4>🍗 Comida</h4>
-        <p>Filete de pollo con sopa de codito</p>
-        <p>Verduras</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="nutricion">
-    <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
-    <p>Cada platillo está cuidadosamente diseñado por nutricionistas para aportar la energía y nutrientes esenciales que nuestros estudiantes necesitan.</p>
-  </section>
-
-  <footer>
-    © 2025 Colegio Tlahtoani | Nutrición para el futuro
-  </footer>
+    <footer>
+      © 2025 Colegio Tlahtoani | Nutrición para el futuro
+    </footer>
+  </div>
 </body>
 </html>
