@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>La Madalena – Plaza Landmark | Invitación</title>
+  <title>Colegio Tlahtoani – Menú Escolar</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,191 +11,277 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Preload imágenes -->
-  <link rel="preload" href="caroxv.jpg" as="image" fetchpriority="high">
-  <link rel="preload" href="logo-madalena.png" as="image" fetchpriority="high">
+  <link rel="preload" href="imagenmenu.png" as="image" fetchpriority="high">
+  <link rel="preload" href="logo.png" as="image" fetchpriority="high">
 
   <style>
-    :root{
-      --vino:#6d2332;
-      --vino-osc:#4a1621;
-      --dorado:#c9a44a;
-      --crema:#fff8f0;
+    :root {
+      --azul-primario: #1E88E5;
+      --azul-oscuro: #1565C0;
+      --verde-secundario: #43A047;
+      --naranja: #FB8C00;
+      --amarillo: #FDD835;
 
-      --blanco:#ffffff;
-      --gris-claro:#f5f5f7;
-      --gris:#dadde3;
-      --gris-700:#5a606b;
-      --texto:#1b1f26;
+      --blanco: #FFFFFF;
+      --gris-muy-claro: #FAFAFA;
+      --gris-medio: #E0E0E0;
+      --gris-oscuro: #757575;
+      --texto-oscuro: #212121;
 
-      --shadow: rgba(0,0,0,.12);
-      --gradient-1: linear-gradient(135deg,var(--vino),var(--vino-osc));
-      --gradient-2: linear-gradient(135deg,#8a2a3b,var(--vino));
-      --gradient-3: linear-gradient(135deg,var(--dorado),#e8d08a);
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:var(--gris-claro);
-      color:var(--texto);
-      -webkit-font-smoothing:antialiased;
-      line-height:1.55;
-    }
-    .container{max-width:1200px;margin:0 auto;padding:16px}
-
-    header{
-      display:flex;justify-content:center;align-items:center;
-      background:var(--gradient-1);
-      padding:18px;border-radius:16px;
-      box-shadow:0 6px 24px var(--shadow);
-      margin-bottom:24px; position:relative;
-    }
-    .logo-box{
-      width:110px;height:110px;background:var(--blanco);
-      border-radius:18px;padding:10px;border:2px solid var(--blanco);
-      box-shadow:0 3px 16px rgba(255,255,255,.25);
-      display:flex;align-items:center;justify-content:center;
-    }
-    .logo-box img{width:84%;height:auto;object-fit:contain}
-
-    .title-wrap{
-      position:absolute;left:150px;right:24px;text-align:left;color:#fff;
-    }
-    .title-wrap h1{
-      font-size:clamp(1.2rem,2.4vw,1.75rem);
-      font-weight:800;letter-spacing:.3px;
-    }
-    .title-wrap p{
-      opacity:.9;margin-top:4px;font-weight:500
+      --shadow: rgba(33,33,33,0.1);
+      --gradient-1: linear-gradient(135deg, var(--azul-primario), var(--azul-oscuro));
+      --gradient-2: linear-gradient(135deg, var(--verde-secundario), #2E7D32);
+      --gradient-3: linear-gradient(135deg, var(--naranja), var(--amarillo));
     }
 
-    .hero{margin:24px 0;text-align:center}
-    .hero img{
-      width:100%;max-height:420px;object-fit:cover;
-      border-radius:16px;border:2px solid var(--gris);
-      box-shadow:0 6px 24px var(--shadow);
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+    body {
+      font-family: Inter, sans-serif;
+      background: var(--gris-muy-claro);
+      color: var(--texto-oscuro);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
     }
 
-    /* Tarjeta de invitación */
-    .inv-card{
-      background:var(--blanco); border:1px solid var(--gris);
-      border-radius:16px; padding:22px;
-      box-shadow:0 6px 20px var(--shadow);
-      display:grid; gap:16px;
-    }
-    .inv-badge{
-      display:inline-flex;align-items:center;gap:8px;
-      background:var(--gradient-3);color:#2b2310;
-      font-weight:700;border-radius:999px;padding:8px 14px; font-size:.9rem;
-      border:1px solid rgba(0,0,0,.05);
-      width:max-content
-    }
-    .inv-card h2{
-      font-size:1.6rem;color:var(--vino-osc);letter-spacing:.2px
-    }
-    .inv-card p.lead{font-size:1.02rem;color:var(--gris-700)}
-    .grid{
-      display:grid;gap:16px;margin-top:4px
-    }
-    @media(min-width:768px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-    .info{
-      background:var(--crema);border:1px dashed #e5cfa6;border-radius:14px;
-      padding:14px 16px
-    }
-    .info h4{color:#7a2a34;margin-bottom:6px;font-size:1rem}
-    .info p{font-size:.98rem}
-    .btns{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:10px 14px;border-radius:12px;border:1px solid transparent;
-      font-weight:700;text-decoration:none;transition:.25s;
-    }
-    .btn-primary{background:var(--vino);color:#fff;border-color:#0000}
-    .btn-primary:hover{filter:brightness(.95);transform:translateY(-1px)}
-    .btn-ghost{background:#ffffffaa;color:var(--vino);border-color:var(--vino)}
-    .btn-ghost:hover{background:#fff}
-
-    .cards{display:grid;gap:22px;margin-top:22px}
-    @media(min-width:768px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    .card{
-      background:var(--blanco);border-radius:16px;border:1px solid var(--gris);
-      box-shadow:0 6px 20px var(--shadow);overflow:hidden;
-      transition:transform .3s ease, box-shadow .3s ease;
-    }
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(0,0,0,.14)}
-    .card-header{
-      background:var(--gradient-2);color:#fff;text-align:center;
-      font-weight:800;padding:12px;font-size:1.05rem;letter-spacing:.3px
-    }
-    .card-body{padding:16px 18px}
-    .list p{margin-left:16px;position:relative;margin-bottom:8px}
-    .list p::before{
-      content:"▸";position:absolute;left:-12px;color:var(--dorado);font-weight:900
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px;
     }
 
-    .note{
-      background:var(--gradient-3);color:#2b2310;
-      padding:24px 18px;border-radius:16px;margin:26px 0 18px;
-      box-shadow:0 6px 22px var(--shadow); text-align:center
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: var(--gradient-1);
+      padding: 18px;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px var(--shadow);
+      margin-bottom: 24px;
     }
-    .note h3{font-size:1.3rem;margin-bottom:6px}
-    .note p{max-width:700px;margin:0 auto;font-weight:600}
 
-    footer{
-      text-align:center;font-size:.85rem;color:var(--gris-700);
-      padding:16px 0;margin-top:18px;border-top:1px solid var(--gris)
+    /* Recuadro blanco más chico */
+    .logo-box {
+      width: 100px;               /* reducido aún más */
+      height: 100px;              /* reducido aún más */
+      background: var(--blanco);
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: 0 3px 16px rgba(255,255,255,0.3);
+      border: 2px solid var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .muted{opacity:.8}
+
+    /* Logo más chico */
+    .logo-box img {
+      width: 80%;                 /* ocupa el 80% del recuadro */
+      height: auto;
+      object-fit: contain;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .hero img {
+      max-width: 100%;
+      max-height: 260px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 6px 24px var(--shadow);
+      border: 2px solid var(--gris-medio);
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    @media(min-width:768px){
+      .menu-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+    }
+
+    .dia-card {
+      background: var(--blanco);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px var(--shadow);
+      border: 1px solid var(--gris-medio);
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .dia-card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 8px 24px rgba(33,33,33,0.15);
+    }
+
+    .dia-header {
+      background: var(--gradient-2);
+      color: var(--blanco);
+      font-weight: 700;
+      padding: 12px;
+      text-align: center;
+      font-size:1.1rem;
+    }
+
+    .comidas { padding: 16px 20px; }
+
+    .comida h4 {
+      color: var(--naranja);
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      font-weight:600;
+    }
+    .comida p {
+      margin-left: 16px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+    .comida p::before {
+      content:"▸";
+      position:absolute;
+      left:-12px;
+      color:var(--azul-primario);
+      font-weight:bold;
+    }
+
+    .nutricion {
+      background: var(--gradient-3);
+      padding: 26px 18px;
+      text-align: center;
+      color: var(--blanco);
+      border-radius: 16px;
+      margin: 30px 0 20px;
+      box-shadow: 0 6px 22px var(--shadow);
+    }
+    .nutricion h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .nutricion p {
+      max-width: 620px;
+      margin: 0 auto;
+      font-size: .9rem;
+      font-weight: 500;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      font-size: .8rem;
+      color: var(--gris-oscuro);
+      padding: 16px 0;
+      margin-top: 26px;
+      border-top:1px solid var(--gris-medio);
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
       <div class="logo-box">
-        <img src="logo-madalena.png" alt="Logo La Madalena">
-      </div>
-      <div class="title-wrap">
-        <h1>La Madalena · Plaza Landmark</h1>
-        <p class="muted">Guadalajara, Jalisco · Experiencia gastronómica</p>
+        <img src="logo.png" alt="Logo Colegio Tlahtoani">
       </div>
     </header>
 
-    <!-- Portada con la imagen subida -->
     <section class="hero">
-      <img src="caroxv.jpg" alt="Portada de la invitación">
+      <img src="imagenmenu.png" alt="Menú Escolar Portada">
     </section>
 
-    <section class="inv-card" aria-labelledby="inv-title">
-      <span class="inv-badge">Invitación especial ✨</span>
-      <h2 id="inv-title">Para: Diana Carolina Hernández Reyes</h2>
-      <p class="lead">
-        Nos encantaría contar con tu presencia en una velada en <strong>La Madalena, Plaza Landmark</strong>.
-        Una ocasión para compartir, disfrutar de la cocina de autor y celebrar juntos.
-      </p>
-
-      <div class="grid">
-        <div class="info">
-          <h4>📅 Fecha y hora</h4>
-          <p>Lunes, <strong>06 de octubre de 2025</strong> · <strong>8:00 p.m.</strong></p>
-        </div>
-        <div class="info">
-          <h4>📍 Ubicación</h4>
-          <p>Plaza Landmark, Guadalajara, Jal.</p>
-          <p><a class="btn btn-ghost" href="https://maps.google.com/?q=Plaza+Landmark+Guadalajara" target="_blank" rel="noopener">Ver en Maps</a></p>
-        </div>
-        <div class="info">
-          <h4>👗 Dress code</h4>
-          <p>Casual elegante</p>
+    <!-- Cards de menú -->
+    <div class="menu-grid">
+      <div class="dia-card">
+        <div class="dia-header">Lunes</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Mollete de frijoles con queso</p>
+            <p>Piña 🍍 en cubitos</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Caldo de pollo con verdura</p>
+            <p>Una o dos tortillas</p>
+          </div>
         </div>
       </div>
 
-      <div class="btns">
-        <a class="btn btn-primary" href="mailto:?subject=Confirmo asistencia a La Madalena&body=Hola,%20confirmo%20mi%20asistencia%20el%2006%20de%20octubre%20a%20las%208:00%20pm.">Confirmar asistencia (correo)</a>
-        <a class="btn btn-ghost" href="https://wa.me/?text=Confirmo%20asistencia%20a%20La%20Madalena%20(06%20oct%202025%208:00%20pm)" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+      <div class="dia-card">
+        <div class="dia-header">Martes</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Sándwich de jamón</p>
+            <p>Pepino</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Tinga de pollo con arroz y verdura</p>
+          </div>
+        </div>
       </div>
+
+      <div class="dia-card">
+        <div class="dia-header">Miércoles</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Huevo con jamón</p>
+            <p>Una o dos tortillas</p>
+            <p>Jícama</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Ceviche de soya con atún</p>
+            <p>Jitomate, cebolla, cilantro</p>
+            <p>Galletas saladas</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dia-card">
+        <div class="dia-header">Jueves</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Avena</p>
+            <p>Galletas Marías</p>
+            <p>Manzana</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Espagueti con carne molida</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="dia-card">
+        <div class="dia-header">Viernes</div>
+        <div class="comidas">
+          <div class="comida">
+            <h4>Desayuno</h4>
+            <p>Enfrijoladas con queso</p>
+            <p>Pepino</p>
+          </div>
+          <div class="comida">
+            <h4>Comida</h4>
+            <p>Filete de pollo con sopa de codito</p>
+            <p>Verduras</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="nutricion">
+      <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
+      <p>Cada platillo está planeado para aportar energía, nutrientes esenciales y bienestar a nuestros estudiantes.</p>
     </section>
 
     <footer>
-      © 2025 La Madalena – Plaza Landmark · Sitio de invitación
+      © 2025 Colegio Tlahtoani | Nutrición para el Futuro
     </footer>
   </div>
 </body>
