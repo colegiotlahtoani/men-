@@ -3,30 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menú Escolar - Colegio Tlahtoani</title>
+  <title>Menú Escolar</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --azul-primario: #1E88E5;
-      --azul-oscuro: #1565C0;
       --verde-sec: #43A047;
-      --verde-claro: #66BB6A;
-      --amarillo: #FDD835;
       --naranja: #FB8C00;
-
-      --blanco: #FFFFFF;
-      --gris-muy-claro: #FAFAFA;
       --gris-claro: #F5F5F5;
-      --gris-medio: #E0E0E0;
-      --gris-oscuro: #757575;
       --texto: #212121;
-
-      --bg: var(--gris-muy-claro);
-      --card-bg: var(--blanco);
-      --shadow: rgba(33, 33, 33, 0.1);
-      --gradient-accent: linear-gradient(135deg, var(--naranja), var(--amarillo));
+      --blanco: #FFFFFF;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --gradient-accent: linear-gradient(135deg, var(--naranja), #FDD835);
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -34,27 +23,24 @@
     }
     body {
       font-family: Inter, sans-serif;
-      background: var(--bg);
+      background: var(--gris-claro);
       color: var(--texto);
       line-height: 1.5;
-      min-height: 100vh;
     }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 16px;
-    }
-
-    /* Imagen portada */
     .hero-img {
       width: 100%;
       height: auto;
+      max-height: 260px;
+      object-fit: cover;
       display: block;
-      border-radius: 0;
-      margin-bottom: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px var(--shadow);
     }
-
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 16px;
+    }
     .menu-grid {
       display: grid;
       gap: 24px;
@@ -64,9 +50,8 @@
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
     }
-
     .dia-card {
-      background: var(--card-bg);
+      background: var(--blanco);
       border-radius: 12px;
       box-shadow: 0 4px 20px var(--shadow);
       overflow: hidden;
@@ -75,7 +60,6 @@
     .dia-card:hover {
       transform: translateY(-5px);
     }
-
     .dia-header {
       background: var(--verde-sec);
       color: var(--blanco);
@@ -83,7 +67,6 @@
       text-align: center;
       font-weight: 600;
     }
-
     .comidas {
       padding: 16px;
     }
@@ -109,7 +92,6 @@
     .comida:last-child {
       margin-bottom: 0;
     }
-
     .nutricion {
       background: var(--gradient-accent);
       color: var(--blanco);
@@ -119,17 +101,16 @@
       border-radius: 12px;
       box-shadow: 0 4px 20px var(--shadow);
     }
-
     footer {
       text-align: center;
       margin-top: 24px;
       font-size: 0.9rem;
-      color: var(--gris-oscuro);
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <!-- Imagen de portada como encabezado -->
+  <!-- Imagen como portada / cabecera de la web -->
   <img src="imagenmenu.png" alt="Menú Escolar Ilustrado" class="hero-img">
 
   <div class="container">
