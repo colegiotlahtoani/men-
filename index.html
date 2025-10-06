@@ -4,125 +4,102 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Colegio Tlahtoani - Menú Digital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --color-primario: #43a047;
-      --color-secundario: #fdd835;
-      --color-destacado: #ff7043;
-      --color-fondo: #f9f9f9;
-      --color-texto: #212121;
-      --color-card: #ffffff;
-      --sombra: 0 4px 20px rgba(0,0,0,0.07);
-      --radio: 12px;
+      --bg-color: #f0f4f8;
+      --glass-bg: rgba(255, 255, 255, 0.35);
+      --glass-border: rgba(255, 255, 255, 0.18);
+      --accent: #00b894;
+      --highlight: #fdcb6e;
+      --text: #2d3436;
+      --card-radius: 16px;
+      --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
     }
 
     body {
-      font-family: 'Quicksand', sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: var(--color-fondo);
-      color: var(--color-texto);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #dfe9f3, #ffffff);
+      color: var(--text);
     }
 
     header {
-      background: linear-gradient(120deg, var(--color-primario), #2e7d32);
-      color: white;
-      padding: 2rem 1rem;
       text-align: center;
-      box-shadow: var(--sombra);
+      padding: 3rem 1rem 1rem;
+      background: transparent;
     }
 
     .logo {
       font-size: 2.8rem;
       font-weight: 700;
-      margin: 0;
+      color: var(--accent);
     }
 
     .logo::after {
       content: " 🍎";
-      font-size: 2rem;
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=1350&q=80');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 4rem 2rem;
       text-align: center;
+      padding: 1rem 2rem 3rem;
     }
 
     .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #555;
     }
 
     .menu-semanal {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
-      padding: 3rem 2rem;
+      padding: 2rem;
       max-width: 1400px;
       margin: auto;
     }
 
     .dia {
-      background: var(--color-card);
-      border-radius: var(--radio);
-      box-shadow: var(--sombra);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
+      backdrop-filter: blur(12px);
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .dia:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     }
 
     .dia-header {
-      background-color: var(--color-primario);
-      color: white;
-      padding: 1rem;
-      border-top-left-radius: var(--radio);
-      border-top-right-radius: var(--radio);
-      text-align: center;
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .comidas-container {
-      padding: 1.5rem;
-      flex: 1;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-align: center;
     }
 
     .comida {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
 
     .comida h4 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: var(--color-destacado);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-size: 1.1rem;
+      color: var(--highlight);
+      margin: 0.5rem 0;
     }
 
     .comida p {
-      margin: 0.2rem 0 0.2rem 1.5rem;
+      margin-left: 1rem;
+      margin-bottom: 0.4rem;
       position: relative;
     }
 
@@ -130,39 +107,38 @@
       content: "•";
       position: absolute;
       left: -1rem;
-      color: var(--color-primario);
+      color: var(--accent);
       font-weight: bold;
     }
 
     .nutricion {
-      background: linear-gradient(120deg, var(--color-destacado), #ff8a65);
-      color: white;
-      padding: 3rem 2rem;
-      margin: 2rem auto;
+      max-width: 900px;
+      margin: 3rem auto 2rem;
+      padding: 2rem;
       text-align: center;
-      border-radius: var(--radio);
-      max-width: 1000px;
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--card-radius);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow);
     }
 
     .nutricion h2 {
-      font-size: 2rem;
+      color: var(--accent);
       margin-bottom: 1rem;
     }
 
     footer {
-      background: #2e7d32;
-      color: white;
       text-align: center;
-      padding: 1.5rem;
+      padding: 2rem;
       font-weight: 600;
+      background-color: #fff;
+      color: #888;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .hero h1 {
-        font-size: 2.2rem;
-      }
-      .logo {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
     }
   </style>
@@ -178,89 +154,74 @@
   </section>
 
   <section class="menu-semanal">
-    <!-- Lunes -->
     <div class="dia">
       <div class="dia-header">📅 Lunes</div>
-      <div class="comidas-container">
-        <div class="comida">
-          <h4>🍳 Desayuno</h4>
-          <p>Moquete de frijoles con queso</p>
-          <p>Piña 🍍 en cubitos</p>
-        </div>
-        <div class="comida">
-          <h4>🍲 Comida</h4>
-          <p>Caldo de pollo con verdura</p>
-          <p>Una o dos tortillas</p>
-        </div>
+      <div class="comida">
+        <h4>🍳 Desayuno</h4>
+        <p>Moquete de frijoles con queso</p>
+        <p>Piña 🍍 en cubitos</p>
+      </div>
+      <div class="comida">
+        <h4>🍲 Comida</h4>
+        <p>Caldo de pollo con verdura</p>
+        <p>Una o dos tortillas</p>
       </div>
     </div>
 
-    <!-- Martes -->
     <div class="dia">
       <div class="dia-header">📅 Martes</div>
-      <div class="comidas-container">
-        <div class="comida">
-          <h4>🥪 Desayuno</h4>
-          <p>Sándwich de jamón</p>
-          <p>Pepino</p>
-        </div>
-        <div class="comida">
-          <h4>🍛 Comida</h4>
-          <p>Tinga de pollo con arroz y verdura</p>
-        </div>
+      <div class="comida">
+        <h4>🥪 Desayuno</h4>
+        <p>Sándwich de jamón</p>
+        <p>Pepino</p>
+      </div>
+      <div class="comida">
+        <h4>🍛 Comida</h4>
+        <p>Tinga de pollo con arroz y verdura</p>
       </div>
     </div>
 
-    <!-- Miércoles -->
     <div class="dia">
       <div class="dia-header">📅 Miércoles</div>
-      <div class="comidas-container">
-        <div class="comida">
-          <h4>🍳 Desayuno</h4>
-          <p>Huevo con jamón</p>
-          <p>Una o dos tortillas</p>
-          <p>Jícama</p>
-        </div>
-        <div class="comida">
-          <h4>🐟 Comida</h4>
-          <p>Ceviche de soya con atún</p>
-          <p>Jitomate, cebolla, cilantro</p>
-          <p>Galletas saladas</p>
-        </div>
+      <div class="comida">
+        <h4>🍳 Desayuno</h4>
+        <p>Huevo con jamón</p>
+        <p>Una o dos tortillas</p>
+        <p>Jícama</p>
+      </div>
+      <div class="comida">
+        <h4>🐟 Comida</h4>
+        <p>Ceviche de soya con atún</p>
+        <p>Jitomate, cebolla, cilantro</p>
+        <p>Galletas saladas</p>
       </div>
     </div>
 
-    <!-- Jueves -->
     <div class="dia">
       <div class="dia-header">📅 Jueves</div>
-      <div class="comidas-container">
-        <div class="comida">
-          <h4>🥣 Desayuno</h4>
-          <p>Avena</p>
-          <p>Galletas Marías</p>
-          <p>Manzana</p>
-        </div>
-        <div class="comida">
-          <h4>🍲 Comida</h4>
-          <p>Espejuelo con carne molida</p>
-        </div>
+      <div class="comida">
+        <h4>🥣 Desayuno</h4>
+        <p>Avena</p>
+        <p>Galletas Marías</p>
+        <p>Manzana</p>
+      </div>
+      <div class="comida">
+        <h4>🍲 Comida</h4>
+        <p>Espejuelo con carne molida</p>
       </div>
     </div>
 
-    <!-- Viernes -->
     <div class="dia">
       <div class="dia-header">📅 Viernes</div>
-      <div class="comidas-container">
-        <div class="comida">
-          <h4>🌯 Desayuno</h4>
-          <p>No enfrijoladas con queso</p>
-          <p>Pepino</p>
-        </div>
-        <div class="comida">
-          <h4>🍗 Comida</h4>
-          <p>Filete de pollo con sopa de codito</p>
-          <p>Verduras</p>
-        </div>
+      <div class="comida">
+        <h4>🌯 Desayuno</h4>
+        <p>No enfrijoladas con queso</p>
+        <p>Pepino</p>
+      </div>
+      <div class="comida">
+        <h4>🍗 Comida</h4>
+        <p>Filete de pollo con sopa de codito</p>
+        <p>Verduras</p>
       </div>
     </div>
   </section>
@@ -275,3 +236,4 @@
   </footer>
 </body>
 </html>
+s
