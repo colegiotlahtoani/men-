@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Preload imagenes -->
+  <!-- Preload imágenes -->
   <link rel="preload" href="imagenmenu.png" as="image" fetchpriority="high">
   <link rel="preload" href="logo.png" as="image" fetchpriority="high">
 
@@ -19,33 +19,29 @@
       --azul-primario: #1E88E5;
       --azul-oscuro: #1565C0;
       --verde-secundario: #43A047;
-      --verde-oscuro: #2E7D32;
       --naranja: #FB8C00;
       --amarillo: #FDD835;
 
       --blanco: #FFFFFF;
       --gris-muy-claro: #FAFAFA;
-      --gris-claro: #F5F5F5;
       --gris-medio: #E0E0E0;
       --gris-oscuro: #757575;
       --texto-oscuro: #212121;
 
-      --shadow: rgba(33, 33, 33, 0.1);
-
+      --shadow: rgba(33,33,33,0.1);
       --gradient-1: linear-gradient(135deg, var(--azul-primario), var(--azul-oscuro));
-      --gradient-2: linear-gradient(135deg, var(--verde-secundario), var(--verde-oscuro));
+      --gradient-2: linear-gradient(135deg, var(--verde-secundario), #2E7D32);
       --gradient-3: linear-gradient(135deg, var(--naranja), var(--amarillo));
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin:0; padding:0; }
 
     body {
-      font-family: Inter, system-ui, sans-serif;
+      font-family: Inter, sans-serif;
       background: var(--gris-muy-claro);
       color: var(--texto-oscuro);
       -webkit-font-smoothing: antialiased;
       line-height: 1.5;
-      min-height: 100vh;
     }
 
     .container {
@@ -59,20 +55,31 @@
       justify-content: center;
       align-items: center;
       background: var(--gradient-1);
-      padding: 20px;
+      padding: 24px;
       border-radius: 18px;
       box-shadow: 0 8px 32px var(--shadow);
       margin-bottom: 24px;
     }
 
-    .logo {
-      width: 120px;
-      height: auto;
-      border-radius: 12px;
+    /* Recuadro blanco (mismo tamaño) */
+    .logo-box {
+      width: 160px;
+      height: 160px;
       background: var(--blanco);
-      padding: 8px;
-      box-shadow: 0 4px 20px rgba(255,255,255,0.3);
-      border: 2px solid var(--blanco);
+      border-radius: 20px;
+      padding: 12px;                   /* Mantiene borde blanco */
+      box-shadow: 0 6px 24px rgba(255,255,255,0.3);
+      border: 3px solid var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Logo más grande dentro del recuadro */
+    .logo-box img {
+      width: 95%;                      /* Logo más grande */
+      height: auto;
+      object-fit: contain;             /* No se deforma */
     }
 
     .hero {
@@ -85,7 +92,7 @@
       object-fit: cover;
       border-radius: 20px;
       box-shadow: 0 10px 32px var(--shadow);
-      border:2px solid var(--gris-medio);
+      border: 2px solid var(--gris-medio);
     }
 
     .menu-grid {
@@ -163,23 +170,6 @@
       line-height: 1.4;
     }
 
-    .cta-button {
-      display:inline-block;
-      margin-top:20px;
-      padding:14px 28px;
-      border-radius:14px;
-      background: var(--gradient-2);
-      color: var(--blanco);
-      font-weight:700;
-      text-decoration:none;
-      box-shadow:0 6px 20px rgba(67,160,71,0.4);
-      transition:all .3s ease;
-    }
-    .cta-button:hover{
-      transform:translateY(-4px);
-      box-shadow:0 12px 32px rgba(67,160,71,0.5);
-    }
-
     footer {
       text-align: center;
       font-size: .9rem;
@@ -193,15 +183,17 @@
 <body>
   <div class="container">
     <header>
-      <img src="logo.png" alt="Logo Colegio Tlahtoani" class="logo">
+      <div class="logo-box">
+        <img src="logo.png" alt="Logo Colegio Tlahtoani">
+      </div>
     </header>
 
     <section class="hero">
       <img src="imagenmenu.png" alt="Menú Escolar Portada">
     </section>
 
+    <!-- Cards de menú -->
     <div class="menu-grid">
-      <!-- Lunes -->
       <div class="dia-card">
         <div class="dia-header">Lunes</div>
         <div class="comidas">
@@ -218,7 +210,6 @@
         </div>
       </div>
 
-      <!-- Martes -->
       <div class="dia-card">
         <div class="dia-header">Martes</div>
         <div class="comidas">
@@ -234,7 +225,6 @@
         </div>
       </div>
 
-      <!-- Miércoles -->
       <div class="dia-card">
         <div class="dia-header">Miércoles</div>
         <div class="comidas">
@@ -253,7 +243,6 @@
         </div>
       </div>
 
-      <!-- Jueves -->
       <div class="dia-card">
         <div class="dia-header">Jueves</div>
         <div class="comidas">
@@ -270,7 +259,6 @@
         </div>
       </div>
 
-      <!-- Viernes -->
       <div class="dia-card">
         <div class="dia-header">Viernes</div>
         <div class="comidas">
@@ -291,7 +279,6 @@
     <section class="nutricion">
       <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
       <p>Cada platillo está cuidadosamente planeado para aportar energía, nutrientes esenciales y bienestar a nuestros estudiantes.</p>
-      <a href="#contacto" class="cta-button">📞 Contáctanos</a>
     </section>
 
     <footer>
