@@ -7,16 +7,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --color-primario: #4CAF50; /* Verde más vibrante */
-            --color-secundario: #FFC107; /* Amarillo dorado */
-            --color-terciario: #2196F3; /* Azul brillante */
-            --color-fondo: #F5F5F5; /* Fondo más neutral */
+            --color-primario: #4CAF50;
+            --color-secundario: #FFC107;
+            --color-terciario: #2196F3;
+            --color-fondo: #F5F5F5;
             --color-texto: #333;
-            --color-destacado: #FF5722; /* Naranja intenso */
+            --color-destacado: #FF5722;
             --color-card: #FFFFFF;
             --sombra: 0 8px 16px rgba(0,0,0,0.1);
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
@@ -25,30 +25,28 @@
             color: var(--color-texto);
             line-height: 1.6;
         }
-        
+
         header {
             background: linear-gradient(135deg, var(--color-primario), #2E7D32);
             color: white;
             padding: 2rem 1rem;
             text-align: center;
             box-shadow: var(--sombra);
-            position: relative;
-            overflow: hidden;
         }
-        
+
         .logo {
             font-size: 2.8rem;
             font-weight: 800;
             margin: 0;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        
+
         .logo::after {
             content: "🍎";
             margin-left: 1rem;
             font-size: 2.5rem;
         }
-        
+
         .hero {
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
@@ -56,23 +54,21 @@
             color: white;
             padding: 5rem 1rem;
             text-align: center;
-            position: relative;
         }
-        
+
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
-        
+
         .hero p {
             font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto;
         }
-        
-        /* Diseño del menú semanal */
+
         .menu-semanal {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -81,21 +77,21 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .dia {
             background: var(--color-card);
             border-radius: 15px;
             box-shadow: var(--sombra);
+            border-top: 5px solid var(--color-secundario);
             overflow: hidden;
             transition: transform 0.3s ease;
-            border-top: 5px solid var(--color-secundario);
         }
-        
+
         .dia:hover {
             transform: translateY(-10px);
             box-shadow: 0 12px 24px rgba(0,0,0,0.15);
         }
-        
+
         .dia-header {
             background: var(--color-primario);
             color: white;
@@ -108,23 +104,23 @@
             justify-content: center;
             gap: 10px;
         }
-        
+
         .comidas-container {
             padding: 1.5rem;
         }
-        
+
         .comida {
             margin-bottom: 1.8rem;
             padding-bottom: 1.5rem;
             border-bottom: 1px dashed #e0e0e0;
         }
-        
+
         .comida:last-child {
             border-bottom: none;
             margin-bottom: 0;
             padding-bottom: 0;
         }
-        
+
         .comida h4 {
             color: var(--color-destacado);
             font-size: 1.3rem;
@@ -134,12 +130,12 @@
             align-items: center;
             gap: 10px;
         }
-        
+
         .comida p {
             margin: 0.5rem 0 0 2rem;
             position: relative;
         }
-        
+
         .comida p::before {
             content: "•";
             color: var(--color-primario);
@@ -147,7 +143,7 @@
             position: absolute;
             left: -1rem;
         }
-        
+
         .nutricion {
             background: linear-gradient(135deg, var(--color-terciario), #1976D2);
             color: white;
@@ -158,19 +154,19 @@
             max-width: 1000px;
             box-shadow: var(--sombra);
         }
-        
+
         .nutricion h2 {
             color: var(--color-secundario);
             font-size: 2rem;
             margin-bottom: 1rem;
         }
-        
+
         .nutricion p {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
         }
-        
+
         footer {
             background: linear-gradient(135deg, var(--color-primario), #2E7D32);
             color: white;
@@ -180,16 +176,16 @@
             font-weight: bold;
             font-size: 1.1rem;
         }
-        
+
         @media (max-width: 768px) {
             .menu-semanal {
                 grid-template-columns: 1fr;
             }
-            
+
             .hero h1 {
                 font-size: 2.2rem;
             }
-            
+
             .logo {
                 font-size: 2.2rem;
             }
@@ -209,98 +205,86 @@
     <section class="menu-semanal">
         <!-- Lunes -->
         <div class="dia">
-            <div class="dia-header">
-                <span>📅</span> Lunes
-            </div>
+            <div class="dia-header"><span>📅</span> Lunes</div>
             <div class="comidas-container">
                 <div class="comida">
                     <h4>🍳 Desayuno</h4>
-                    <p>Chilaquiles con crema y queso</p>
-                    <p>Frijoles</p>
-                    <p>Fruta de temporada</p>
+                    <p>Moquete de frijoles con queso</p>
+                    <p>Piña 🍍 en cubitos</p>
                 </div>
                 <div class="comida">
-                    <h4>🥗 Comida</h4>
-                    <p>Ensalada de pollo con verdura</p>
-                    <p>Lechuga</p>
-                    <p>Galletas saladas</p>
+                    <h4>🍲 Comida</h4>
+                    <p>Caldo de pollo con verdura</p>
+                    <p>Una o dos tortillas</p>
                 </div>
             </div>
         </div>
 
         <!-- Martes -->
         <div class="dia">
-            <div class="dia-header">
-                <span>📅</span> Martes
-            </div>
+            <div class="dia-header"><span>📅</span> Martes</div>
             <div class="comidas-container">
                 <div class="comida">
-                    <h4>🧀 Desayuno</h4>
-                    <p>Enfrijoladas con queso</p>
-                    <p>Fruta de temporada</p>
+                    <h4>🥪 Desayuno</h4>
+                    <p>Sándwich de jamón</p>
+                    <p>Pepino</p>
                 </div>
                 <div class="comida">
-                    <h4>🍜 Comida</h4>
-                    <p>Sopa de fideo con pollo y verdura</p>
-                    <p>Una o dos tortillas</p>
+                    <h4>🍛 Comida</h4>
+                    <p>Tinga de pollo con arroz y verdura</p>
                 </div>
             </div>
         </div>
 
         <!-- Miércoles -->
         <div class="dia">
-            <div class="dia-header">
-                <span>📅</span> Miércoles
-            </div>
+            <div class="dia-header"><span>📅</span> Miércoles</div>
             <div class="comidas-container">
                 <div class="comida">
                     <h4>🍳 Desayuno</h4>
-                    <p>Huevo con tortilla</p>
-                    <p>Fruta de temporada</p>
+                    <p>Huevo con jamón</p>
+                    <p>Una o dos tortillas</p>
+                    <p>Jícama</p>
                 </div>
                 <div class="comida">
                     <h4>🐟 Comida</h4>
-                    <p>Pescadito empanizado con verdura</p>
-                    <p>Espagueti</p>
+                    <p>Ceviche de soya con atún</p>
+                    <p>Jitomate, cebolla, cilantro</p>
+                    <p>Galletas saladas</p>
                 </div>
             </div>
         </div>
 
         <!-- Jueves -->
         <div class="dia">
-            <div class="dia-header">
-                <span>📅</span> Jueves
-            </div>
+            <div class="dia-header"><span>📅</span> Jueves</div>
             <div class="comidas-container">
                 <div class="comida">
-                    <h4>🥞 Desayuno</h4>
-                    <p>Hot cakes con fruta y miel</p>
+                    <h4>🥣 Desayuno</h4>
+                    <p>Avena</p>
+                    <p>Galletas Marías</p>
+                    <p>Manzana</p>
                 </div>
                 <div class="comida">
-                    <h4>🍛 Comida</h4>
-                    <p>Tortitas de papa con salsa de jitomate</p>
-                    <p>Arroz blanco</p>
-                    <p>Zanahoria</p>
+                    <h4>🍲 Comida</h4>
+                    <p>Espejuelo con carne molida</p>
                 </div>
             </div>
         </div>
 
         <!-- Viernes -->
         <div class="dia">
-            <div class="dia-header">
-                <span>📅</span> Viernes
-            </div>
+            <div class="dia-header"><span>📅</span> Viernes</div>
             <div class="comidas-container">
                 <div class="comida">
-                    <h4>🍲 Desayuno</h4>
-                    <p>Sopa de lentejas con arroz</p>
-                    <p>Una o dos tortillas</p>
-                    <p>Fruta de temporada</p>
+                    <h4>🌯 Desayuno</h4>
+                    <p>No enfrijoladas con queso</p>
+                    <p>Pepino</p>
                 </div>
                 <div class="comida">
-                    <h4>🥗 Comida</h4>
-                    <p>Ensalada de atún</p>
-                    <p>Galletas saladas</p>
+                    <h4>🍗 Comida</h4>
+                    <p>Filete de pollo con sopa de codito</p>
+                    <p>Verduras</p>
                 </div>
             </div>
         </div>
