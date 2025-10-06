@@ -3,37 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Colegio Tlahtoani - Menú Digital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <title>Colegio Tlahtoani - Menú Escolar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #f0f4f8;
-      --glass-bg: rgba(255, 255, 255, 0.35);
-      --glass-border: rgba(255, 255, 255, 0.18);
-      --accent: #00b894;
-      --highlight: #fdcb6e;
-      --text: #2d3436;
-      --card-radius: 16px;
-      --shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+      --bg: linear-gradient(to right, #f8f9fd, #eef2f8);
+      --card-radius: 20px;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     }
 
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to right, #dfe9f3, #ffffff);
-      color: var(--text);
+      font-family: 'Fredoka', sans-serif;
+      background: var(--bg);
+      color: #333;
     }
 
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
-      background: transparent;
     }
 
     .logo {
-      font-size: 2.8rem;
-      font-weight: 700;
-      color: var(--accent);
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ff6f61;
     }
 
     .logo::after {
@@ -46,13 +40,14 @@
     }
 
     .hero h1 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0;
+      font-size: 2.6rem;
+      color: #2e2e2e;
+      margin-bottom: 0.5rem;
     }
 
     .hero p {
-      font-size: 1.1rem;
-      color: #555;
+      font-size: 1.2rem;
+      color: #666;
     }
 
     .menu-semanal {
@@ -65,26 +60,43 @@
     }
 
     .dia {
-      backdrop-filter: blur(12px);
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
       border-radius: var(--card-radius);
-      padding: 1.5rem;
+      padding: 2rem 1.5rem;
       box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
     .dia:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      transform: translateY(-6px);
     }
 
+    .dia::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      background: var(--accent);
+    }
+
+    .dia[data-dia="lunes"] { --accent: #f0932b; }
+    .dia[data-dia="martes"] { --accent: #22a6b3; }
+    .dia[data-dia="miércoles"] { --accent: #6c5ce7; }
+    .dia[data-dia="jueves"] { --accent: #00b894; }
+    .dia[data-dia="viernes"] { --accent: #e84393; }
+
     .dia-header {
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: bold;
       margin-bottom: 1rem;
       color: var(--accent);
-      text-align: center;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
     .comida {
@@ -92,9 +104,9 @@
     }
 
     .comida h4 {
-      font-size: 1.1rem;
-      color: var(--highlight);
-      margin: 0.5rem 0;
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+      color: #444;
     }
 
     .comida p {
@@ -104,42 +116,32 @@
     }
 
     .comida p::before {
-      content: "•";
+      content: "🍽️";
       position: absolute;
-      left: -1rem;
-      color: var(--accent);
-      font-weight: bold;
+      left: -1.6rem;
     }
 
     .nutricion {
-      max-width: 900px;
-      margin: 3rem auto 2rem;
-      padding: 2rem;
+      background: linear-gradient(145deg, #ffeaa7, #fab1a0);
+      padding: 2.5rem 2rem;
       text-align: center;
-      background: var(--glass-bg);
-      border: 1px solid var(--glass-border);
       border-radius: var(--card-radius);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
+      margin: 4rem auto 2rem;
+      max-width: 1000px;
+      color: #2d3436;
     }
 
     .nutricion h2 {
-      color: var(--accent);
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
 
     footer {
       text-align: center;
       padding: 2rem;
-      font-weight: 600;
       background-color: #fff;
+      font-weight: 600;
       color: #888;
-    }
-
-    @media (max-width: 600px) {
-      .hero h1 {
-        font-size: 2rem;
-      }
     }
   </style>
 </head>
@@ -150,11 +152,11 @@
 
   <section class="hero">
     <h1>Menú Nutritivo Semanal</h1>
-    <p>Alimentos balanceados para el desarrollo integral de nuestros estudiantes</p>
+    <p>Deliciosos y balanceados platillos para una semana llena de energía y salud</p>
   </section>
 
   <section class="menu-semanal">
-    <div class="dia">
+    <div class="dia" data-dia="lunes">
       <div class="dia-header">📅 Lunes</div>
       <div class="comida">
         <h4>🍳 Desayuno</h4>
@@ -168,7 +170,7 @@
       </div>
     </div>
 
-    <div class="dia">
+    <div class="dia" data-dia="martes">
       <div class="dia-header">📅 Martes</div>
       <div class="comida">
         <h4>🥪 Desayuno</h4>
@@ -181,7 +183,7 @@
       </div>
     </div>
 
-    <div class="dia">
+    <div class="dia" data-dia="miércoles">
       <div class="dia-header">📅 Miércoles</div>
       <div class="comida">
         <h4>🍳 Desayuno</h4>
@@ -197,7 +199,7 @@
       </div>
     </div>
 
-    <div class="dia">
+    <div class="dia" data-dia="jueves">
       <div class="dia-header">📅 Jueves</div>
       <div class="comida">
         <h4>🥣 Desayuno</h4>
@@ -211,7 +213,7 @@
       </div>
     </div>
 
-    <div class="dia">
+    <div class="dia" data-dia="viernes">
       <div class="dia-header">📅 Viernes</div>
       <div class="comida">
         <h4>🌯 Desayuno</h4>
@@ -236,4 +238,3 @@
   </footer>
 </body>
 </html>
-s
