@@ -4,139 +4,174 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Colegio Tlahtoani – Menú Escolar</title>
-  
-  <!-- Fuentes -->
+
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  
+
+  <!-- Preload imagen portada -->
+  <link rel="preload" href="imagenmenu.png" as="image" fetchpriority="high">
+
   <style>
     :root {
+      /* Paleta profesional */
       --azul-primario: #1E88E5;
       --azul-oscuro: #1565C0;
-      --verde: #43A047;
+      --verde-secundario: #43A047;
+      --verde-oscuro: #2E7D32;
       --naranja: #FB8C00;
       --amarillo: #FDD835;
+
+      --blanco: #FFFFFF;
       --gris-muy-claro: #FAFAFA;
       --gris-claro: #F5F5F5;
       --gris-medio: #E0E0E0;
       --gris-oscuro: #757575;
       --texto-oscuro: #212121;
-      --blanco: #FFFFFF;
+
       --shadow: rgba(33, 33, 33, 0.1);
+
+      /* Gradientes */
       --gradient-1: linear-gradient(135deg, var(--azul-primario), var(--azul-oscuro));
-      --gradient-2: linear-gradient(135deg, var(--verde), #2E7D32);
+      --gradient-2: linear-gradient(135deg, var(--verde-secundario), var(--verde-oscuro));
       --gradient-3: linear-gradient(135deg, var(--naranja), var(--amarillo));
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-family: Inter, system-ui, sans-serif;
       background: var(--gris-muy-claro);
       color: var(--texto-oscuro);
-      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      line-height: 1.5;
+      min-height: 100vh;
     }
-    img.hero-img {
-      width: 100%;
-      max-height: 260px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 4px solid var(--azul-primario);
-      box-shadow: 0 6px 20px var(--shadow);
-    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 16px;
     }
+
     header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
       background: var(--gradient-1);
-      padding: 24px;
-      border-radius: 16px;
-      color: var(--blanco);
-      text-align: center;
-      margin: 24px 0;
+      padding: 20px;
+      border-radius: 18px;
       box-shadow: 0 8px 32px var(--shadow);
+      flex-direction: column;
+      text-align: center;
+      margin-bottom: 24px;
     }
-    header h1 {
+    @media(min-width:600px){
+      header{flex-direction:row; text-align:left;}
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      background: var(--blanco);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      font-weight: 800;
+      color: var(--azul-primario);
+      box-shadow: 0 4px 20px rgba(255,255,255,0.4);
+      border:3px solid var(--blanco);
+    }
+
+    h1 {
       font-size: 2rem;
       font-weight: 800;
-      margin-bottom: 8px;
+      color: var(--blanco);
     }
-    header p {
-      font-weight: 400;
-      opacity: 0.9;
+    p.lead {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      font-weight: 500;
+      margin-top: 6px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .hero img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 32px var(--shadow);
+      border:2px solid var(--gris-medio);
     }
 
     .menu-grid {
       display: grid;
       gap: 24px;
-      margin-top: 24px;
+      margin-top: 20px;
     }
-    @media (min-width: 768px) {
-      .menu-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
+    @media(min-width:768px){
+      .menu-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
     }
 
     .dia-card {
       background: var(--blanco);
-      border-radius: 16px;
-      overflow: hidden;
+      border-radius: 18px;
       box-shadow: 0 6px 20px var(--shadow);
       border: 1px solid var(--gris-medio);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease;
     }
-    .dia-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 28px rgba(33,33,33,0.15);
+    .dia-card:hover{
+      transform:translateY(-5px);
+      box-shadow:0 12px 32px rgba(33,33,33,0.15);
     }
+
     .dia-header {
       background: var(--gradient-2);
       color: var(--blanco);
       font-weight: 700;
-      font-size: 1.2rem;
       padding: 14px;
       text-align: center;
-      letter-spacing: 0.5px;
+      font-size:1.2rem;
+      letter-spacing:0.5px;
     }
-    .comidas {
-      padding: 16px 20px;
-    }
-    .comida {
-      margin-bottom: 14px;
-    }
+
+    .comidas { padding: 18px 22px; }
+
     .comida h4 {
       color: var(--naranja);
       font-size: 1.1rem;
       margin-bottom: 6px;
-      font-weight: 600;
+      font-weight:600;
     }
     .comida p {
       margin-left: 18px;
       position: relative;
-      color: var(--texto-oscuro);
+      margin-bottom: 8px;
     }
     .comida p::before {
-      content: "▸";
-      position: absolute;
-      left: -14px;
-      color: var(--azul-primario);
-      font-weight: bold;
+      content:"▸";
+      position:absolute;
+      left:-14px;
+      color:var(--azul-primario);
+      font-weight:bold;
     }
 
     .nutricion {
       background: var(--gradient-3);
-      padding: 28px 20px;
-      color: var(--blanco);
+      padding: 32px 20px;
       text-align: center;
+      color: var(--blanco);
+      border-radius: 18px;
       margin: 40px 0 20px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px var(--shadow);
+      box-shadow: 0 8px 28px var(--shadow);
     }
     .nutricion h2 {
       font-size: 1.8rem;
@@ -151,24 +186,46 @@
       line-height: 1.4;
     }
 
+    .cta-button {
+      display:inline-block;
+      margin-top:20px;
+      padding:14px 28px;
+      border-radius:14px;
+      background: var(--gradient-2);
+      color: var(--blanco);
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 6px 20px rgba(67,160,71,0.4);
+      transition:all .3s ease;
+    }
+    .cta-button:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 32px rgba(67,160,71,0.5);
+    }
+
     footer {
       text-align: center;
-      font-size: 0.9rem;
+      font-size: .9rem;
       color: var(--gris-oscuro);
-      padding: 16px 0;
-      margin-top: 24px;
-      border-top: 1px solid var(--gris-medio);
+      padding: 20px 0;
+      margin-top: 30px;
+      border-top:1px solid var(--gris-medio);
     }
   </style>
 </head>
 <body>
-  <img src="imagenmenu.png" alt="Menú Escolar Ilustrado" class="hero-img">
-
   <div class="container">
     <header>
-      <h1>Menú Escolar Semanal</h1>
-      <p>Colegio Tlahtoani – Alimentación nutritiva para un mejor aprendizaje</p>
+      <div class="logo">🍎</div>
+      <div class="header-text">
+        <h1>Menú Escolar – Colegio Tlahtoani</h1>
+        <p class="lead">Alimentación nutritiva y balanceada para potenciar el aprendizaje</p>
+      </div>
     </header>
+
+    <section class="hero">
+      <img src="imagenmenu.png" alt="Menú Escolar Portada">
+    </section>
 
     <div class="menu-grid">
       <!-- Lunes -->
@@ -261,10 +318,11 @@
     <section class="nutricion">
       <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
       <p>Cada platillo está cuidadosamente planeado para aportar energía, nutrientes esenciales y bienestar a nuestros estudiantes.</p>
+      <a href="#contacto" class="cta-button">📞 Contáctanos</a>
     </section>
 
     <footer>
-      © 2025 Colegio Tlahtoani | Nutrición para el futuro
+      © 2025 Colegio Tlahtoani | Nutrición para el Futuro
     </footer>
   </div>
 </body>
