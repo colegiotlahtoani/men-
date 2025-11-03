@@ -282,6 +282,22 @@
       font-size: 1.2rem;
     }
 
+    .advertencia-pago {
+      background: var(--gris-muy-claro);
+      border-left: 5px solid var(--naranja);
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .advertencia-pago .icono {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      color: var(--naranja);
+    }
+
     footer {
       text-align: center;
       font-size: 0.9rem;
@@ -330,46 +346,51 @@
     <div class="menu-grid">
       <div class="categoria-card">
         <div class="categoria-header">
-          <span class="emoji">🥪</span> Desayunos
+          <span class="emoji">🍽️</span> Desayunos
         </div>
         <div class="productos">
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Lonches Plena</div>
+              <div class="producto-nombre">Lonche de pierna</div>
             </div>
             <div class="precio">$50</div>
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Sincronizada</div>
+              <div class="producto-nombre">Tacos de barbacoa</div>
               <div class="producto-desc">2 piezas</div>
             </div>
             <div class="precio">$50</div>
           </div>
-        </div>
-      </div>
-
-      <div class="categoria-card">
-        <div class="categoria-header">
-          <span class="emoji">🌮</span> Tacos
-        </div>
-        <div class="productos">
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Tuco Barbacoa</div>
-              <div class="producto-desc">2 tacos</div>
+              <div class="producto-nombre">Burritas de pierna</div>
+              <div class="producto-desc">2 piezas</div>
             </div>
             <div class="precio">$50</div>
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Sachi</div>
+              <div class="producto-nombre">Huevo al gusto con frijoles</div>
+            </div>
+            <div class="precio">$50</div>
+          </div>
+          <div class="producto">
+            <div class="producto-info">
+              <div class="producto-nombre">Sincronizadas</div>
+              <div class="producto-desc">2 piezas</div>
+            </div>
+            <div class="precio">$50</div>
+          </div>
+          <div class="producto">
+            <div class="producto-info">
+              <div class="producto-nombre">Sushi (viernes)</div>
             </div>
             <div class="precio">$60</div>
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Taco de Pescado Empanizado</div>
+              <div class="producto-nombre">Waffles con miel y fruta (viernes)</div>
             </div>
             <div class="precio">$50</div>
           </div>
@@ -378,31 +399,37 @@
 
       <div class="categoria-card">
         <div class="categoria-header">
-          <span class="emoji">🍽️</span> Especialidades
+          <span class="emoji">🍲</span> Comidas
         </div>
         <div class="productos">
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Bunta Reina</div>
-              <div class="producto-desc">2 buntas</div>
+              <div class="producto-nombre">Chuleta con puré</div>
             </div>
             <div class="precio">$50</div>
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Ensalada de Pollo</div>
+              <div class="producto-nombre">Tacos de pescado empanizado</div>
+              <div class="producto-desc">2 piezas con ensalada dulce</div>
+            </div>
+            <div class="precio">$60</div>
+          </div>
+          <div class="producto">
+            <div class="producto-info">
+              <div class="producto-nombre">Crema de brócoli con picadillo</div>
             </div>
             <div class="precio">$50</div>
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Chorreta en Porción</div>
+              <div class="producto-nombre">Ensalada de pollo</div>
             </div>
             <div class="precio">$50</div>
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Rollo</div>
+              <div class="producto-nombre">Rollo de sushi</div>
             </div>
             <div class="precio">$60</div>
           </div>
@@ -411,9 +438,16 @@
 
       <div class="categoria-card">
         <div class="categoria-header">
-          <span class="emoji">🍹</span> Bebidas y Snacks
+          <span class="emoji">🍹</span> Snacks y Bebidas
         </div>
         <div class="productos">
+          <div class="producto">
+            <div class="producto-info">
+              <div class="producto-nombre">Nieves de fruta natural</div>
+              <div class="producto-desc">Tipo chasca, sin azúcar, con toppings</div>
+            </div>
+            <div class="precio">$35</div>
+          </div>
           <div class="producto">
             <div class="producto-info">
               <div class="producto-nombre">Chocomilk</div>
@@ -422,34 +456,16 @@
           </div>
           <div class="producto">
             <div class="producto-info">
-              <div class="producto-nombre">Agua de Fresa</div>
+              <div class="producto-nombre">Fruta con chamoy, sal y limón</div>
+              <div class="producto-desc">Jícama y pepino</div>
+            </div>
+            <div class="precio">$15</div>
+          </div>
+          <div class="producto">
+            <div class="producto-info">
+              <div class="producto-nombre">Aguas frescas</div>
             </div>
             <div class="precio">$10</div>
-          </div>
-          <div class="producto">
-            <div class="producto-info">
-              <div class="producto-nombre">Nápoles de Fruta Natural</div>
-            </div>
-            <div class="precio">$15</div>
-          </div>
-          <div class="producto">
-            <div class="producto-info">
-              <div class="producto-nombre">Fruta con Chamoy</div>
-              <div class="producto-desc">Sal y Limón</div>
-            </div>
-            <div class="precio">$15</div>
-          </div>
-          <div class="producto">
-            <div class="producto-info">
-              <div class="producto-nombre">Jícama</div>
-            </div>
-            <div class="precio">$15</div>
-          </div>
-          <div class="producto">
-            <div class="producto-info">
-              <div class="producto-nombre">Pepino</div>
-            </div>
-            <div class="precio">$15</div>
           </div>
         </div>
       </div>
@@ -464,6 +480,13 @@
         <div class="horario-icono">⏰</div>
         <div>
           <strong>Horario de atención:</strong> Lunes a Viernes de 8:00 AM a 2:00 PM
+        </div>
+      </div>
+      
+      <div class="advertencia-pago">
+        <div class="icono">💵</div>
+        <div>
+          <strong>Pago únicamente en efectivo</strong> - No aceptamos pagos con tarjeta ni transferencias
         </div>
       </div>
     </section>
