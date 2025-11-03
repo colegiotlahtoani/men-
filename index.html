@@ -210,8 +210,14 @@
         }
         .producto-nombre {
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 8px;
             line-height: 1.3;
+        }
+        .producto-dia-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
         }
         .cantidad {
             color: var(--morado);
@@ -227,7 +233,6 @@
             padding: 3px 10px;
             border-radius: 8px;
             font-size: 0.8rem;
-            margin-left: 6px;
             border: 1px solid rgba(255, 160, 0, 0.3);
         }
         .producto-precio {
@@ -240,6 +245,7 @@
             font-size: 0.85rem;
             color: var(--gris-oscuro);
             line-height: 1.4;
+            margin-top: 4px;
         }
         .producto-etiqueta {
             display: inline-block;
@@ -413,13 +419,19 @@
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Sushi <span class="dia-semana">VIERNES</span></div>
+                            <div class="producto-nombre">Sushi</div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">VIERNES</span>
+                            </div>
                         </div>
                         <div class="producto-precio">$60</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Waffles con miel y fruta <span class="dia-semana">VIERNES</span></div>
+                            <div class="producto-nombre">Waffles con miel y fruta</div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">VIERNES</span>
+                            </div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
@@ -431,32 +443,47 @@
                 <div class="productos">
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Chuleta con puré <span class="dia-semana">LUNES</span></div>
+                            <div class="producto-nombre">Chuleta con puré</div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">LUNES</span>
+                            </div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Tacos de pescado empanizado (2 pzas.) <span class="dia-semana">MARTES</span></div>
+                            <div class="producto-nombre">Tacos de pescado empanizado <span class="cantidad">(2 pzas.)</span></div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">MARTES</span>
+                            </div>
                             <div class="producto-desc">Con ensalada dulce</div>
                         </div>
                         <div class="producto-precio">$60</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Crema de brócoli con picadillo <span class="dia-semana">MIÉRCOLES</span></div>
+                            <div class="producto-nombre">Crema de brócoli con picadillo</div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">MIÉRCOLES</span>
+                            </div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Ensalada de pollo <span class="dia-semana">JUEVES</span></div>
+                            <div class="producto-nombre">Ensalada de pollo</div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">JUEVES</span>
+                            </div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Rollo de sushi <span class="dia-semana">VIERNES</span></div>
+                            <div class="producto-nombre">Rollo de sushi</div>
+                            <div class="producto-dia-container">
+                                <span class="dia-semana">VIERNES</span>
+                            </div>
                         </div>
                         <div class="producto-precio">$60</div>
                     </div>
