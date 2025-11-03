@@ -144,6 +144,59 @@
       color:var(--azul-primario);
       font-weight:bold;
     }
+    
+    .precio {
+      display: inline-block;
+      background: var(--azul-primario);
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-left: 8px;
+    }
+
+    .cooperativa-section {
+      background: var(--blanco);
+      border-radius: 16px;
+      box-shadow: 0 6px 20px var(--shadow);
+      border: 1px solid var(--gris-medio);
+      padding: 24px;
+      margin: 30px 0;
+    }
+    
+    .cooperativa-section h2 {
+      color: var(--azul-oscuro);
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+    }
+    
+    .cooperativa-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    
+    .categoria-cooperativa h3 {
+      color: var(--verde-secundario);
+      border-bottom: 2px solid var(--gris-medio);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+    
+    .producto-cooperativa {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--gris-medio);
+    }
+    
+    .producto-cooperativa:last-child {
+      border-bottom: none;
+    }
 
     .nutricion {
       background: var(--gradient-3);
@@ -260,6 +313,88 @@
         </div>
       </div>
     </div>
+
+    <!-- Sección Cooperativa -->
+    <section class="cooperativa-section">
+      <h2>Cooperativa Escolar - Productos Disponibles</h2>
+      <div class="cooperativa-grid">
+        <div class="categoria-cooperativa">
+          <h3>Desayunos</h3>
+          <div class="producto-cooperativa">
+            <span>Lonches Plena</span>
+            <span class="precio">$50</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Sincronizada (2 pzas)</span>
+            <span class="precio">$50</span>
+          </div>
+        </div>
+        
+        <div class="categoria-cooperativa">
+          <h3>Tacos</h3>
+          <div class="producto-cooperativa">
+            <span>Tuco Barbacoa (2 tacos)</span>
+            <span class="precio">$50</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Sachi</span>
+            <span class="precio">$60</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Taco de pescado empanizado</span>
+            <span class="precio">$50</span>
+          </div>
+        </div>
+        
+        <div class="categoria-cooperativa">
+          <h3>Especialidades</h3>
+          <div class="producto-cooperativa">
+            <span>Bunta Reina (2 buntas)</span>
+            <span class="precio">$50</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Ensalada de pollo</span>
+            <span class="precio">$50</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Chorreta en porción</span>
+            <span class="precio">$50</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Rollo</span>
+            <span class="precio">$60</span>
+          </div>
+        </div>
+        
+        <div class="categoria-cooperativa">
+          <h3>Bebidas y Snacks</h3>
+          <div class="producto-cooperativa">
+            <span>Chocomilk</span>
+            <span class="precio">$20</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Agua de Fresa</span>
+            <span class="precio">$10</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Nápoles de Fruta Natural</span>
+            <span class="precio">$15</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Fruta con Chamoy, Sal y Limón</span>
+            <span class="precio">$15</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Jícama</span>
+            <span class="precio">$15</span>
+          </div>
+          <div class="producto-cooperativa">
+            <span>Pepino</span>
+            <span class="precio">$15</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <section class="nutricion">
       <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
