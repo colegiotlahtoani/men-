@@ -8,16 +8,16 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --azul-primario: #4361ee;
-      --azul-oscuro: #3a0ca3;
-      --verde-secundario: #4cc9f0;
-      --naranja: #f72585;
-      --amarillo: #ff9e00;
-      --morado: #7209b7;
+      --amarillo: #FFD166;
+      --naranja: #FF9E6D;
+      --rosa: #EF476F;
+      --verde: #06D6A0;
+      --azul: #118AB2;
+      --morado: #7209B7;
 
       --blanco: #FFFFFF;
       --gris-muy-claro: #f8f9fa;
@@ -27,10 +27,10 @@
 
       --shadow: 0 4px 6px rgba(0,0,0,0.07);
       --shadow-hover: 0 10px 15px rgba(0,0,0,0.1);
-      --gradient-1: linear-gradient(135deg, #4361ee, #3a0ca3);
-      --gradient-2: linear-gradient(135deg, #4cc9f0, #4895ef);
-      --gradient-3: linear-gradient(135deg, #f72585, #b5179e);
-      --gradient-4: linear-gradient(135deg, #7209b7, #560bad);
+      --gradient-1: linear-gradient(135deg, #FFD166, #FF9E6D);
+      --gradient-2: linear-gradient(135deg, #EF476F, #FF9E6D);
+      --gradient-3: linear-gradient(135deg, #06D6A0, #118AB2);
+      --gradient-4: linear-gradient(135deg, #7209B7, #EF476F);
     }
 
     * { 
@@ -41,7 +41,7 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      background: linear-gradient(135deg, #FFFBEB 0%, #E0F7FA 100%);
       color: var(--texto-oscuro);
       -webkit-font-smoothing: antialiased;
       line-height: 1.6;
@@ -51,41 +51,47 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 15px;
     }
 
-    header {
+    /* HEADER REDISEÑADO */
+    .header-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: var(--gradient-1);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: var(--shadow-hover);
-      margin-bottom: 30px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      gap: 20px;
+      margin-bottom: 25px;
     }
 
-    header::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: var(--gradient-3);
+    @media (min-width: 768px) {
+      .header-container {
+        flex-direction: row;
+        justify-content: center;
+        text-align: left;
+      }
+    }
+
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .logo-section {
+        align-items: flex-start;
+        margin-right: 30px;
+      }
     }
 
     .logo-box {
       width: 100px;
       height: 100px;
       background: var(--blanco);
-      border-radius: 20px;
+      border-radius: 25px;
       padding: 12px;
-      box-shadow: 0 5px 15px rgba(255,255,255,0.3);
-      border: 3px solid var(--blanco);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border: 4px solid var(--amarillo);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -98,53 +104,100 @@
       object-fit: contain;
     }
 
+    .title-section {
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .title-section {
+        text-align: left;
+        flex: 1;
+      }
+    }
+
     h1 {
-      color: var(--blanco);
-      font-size: 2.2rem;
+      font-family: 'Comic Neue', cursive;
+      color: var(--rosa);
+      font-size: 2.5rem;
       font-weight: 800;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 8px;
+      text-shadow: 2px 2px 0px var(--amarillo);
+      line-height: 1.1;
+    }
+
+    @media (max-width: 767px) {
+      h1 {
+        font-size: 2rem;
+      }
     }
 
     .subtitle {
-      color: rgba(255,255,255,0.9);
-      font-size: 1.1rem;
-      font-weight: 400;
+      color: var(--azul);
+      font-size: 1.2rem;
+      font-weight: 600;
       max-width: 600px;
     }
 
+    @media (max-width: 767px) {
+      .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    /* ANUNCIO REDISEÑADO */
     .anuncio {
-      background: var(--gradient-3);
-      padding: 25px;
-      border-radius: 18px;
+      background: var(--gradient-2);
+      padding: 25px 20px;
+      border-radius: 25px;
       color: var(--blanco);
       text-align: center;
       margin-bottom: 30px;
       box-shadow: var(--shadow-hover);
       position: relative;
       overflow: hidden;
+      border: 5px dashed var(--blanco);
     }
 
     .anuncio::before {
       content: "✨";
       position: absolute;
-      top: 10px;
+      top: 15px;
       left: 20px;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      animation: twinkle 2s infinite;
     }
 
     .anuncio::after {
       content: "🎉";
       position: absolute;
-      bottom: 10px;
+      bottom: 15px;
       right: 20px;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .anuncio h2 {
-      font-size: 1.8rem;
+      font-family: 'Comic Neue', cursive;
+      font-size: 2rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
+      text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    }
+
+    @media (max-width: 767px) {
+      .anuncio h2 {
+        font-size: 1.6rem;
+      }
     }
 
     .anuncio p {
@@ -152,13 +205,22 @@
       font-weight: 500;
       max-width: 700px;
       margin: 0 auto;
+      line-height: 1.5;
     }
 
+    @media (max-width: 767px) {
+      .anuncio p {
+        font-size: 1rem;
+        padding: 0 10px;
+      }
+    }
+
+    /* MENÚ GRID */
     .menu-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 25px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
     .categoria-card {
@@ -167,7 +229,7 @@
       box-shadow: var(--shadow);
       overflow: hidden;
       transition: all 0.3s ease;
-      border: 1px solid var(--gris-medio);
+      border: 3px solid var(--amarillo);
     }
 
     .categoria-card:hover {
@@ -176,13 +238,14 @@
     }
 
     .categoria-header {
-      background: var(--gradient-2);
+      background: var(--gradient-3);
       color: var(--blanco);
       font-weight: 700;
       padding: 18px;
       text-align: center;
       font-size: 1.3rem;
       position: relative;
+      font-family: 'Comic Neue', cursive;
     }
 
     .categoria-header::after {
@@ -205,7 +268,7 @@
       align-items: center;
       margin-bottom: 16px;
       padding-bottom: 16px;
-      border-bottom: 1px dashed var(--gris-medio);
+      border-bottom: 2px dotted var(--gris-medio);
     }
 
     .producto:last-child {
@@ -238,73 +301,17 @@
       font-size: 1rem;
       font-weight: 700;
       box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-    }
-
-    .info-adicional {
-      background: var(--blanco);
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: var(--shadow);
-      margin-bottom: 30px;
-      border-left: 5px solid var(--naranja);
-    }
-
-    .info-adicional h3 {
-      color: var(--azul-oscuro);
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    .info-adicional p {
-      margin-bottom: 10px;
-      color: var(--gris-oscuro);
-    }
-
-    .horario {
-      display: flex;
-      align-items: center;
-      background: var(--gris-muy-claro);
-      padding: 15px;
-      border-radius: 12px;
-      margin-top: 15px;
-    }
-
-    .horario-icono {
-      background: var(--gradient-1);
-      color: white;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 15px;
-      font-size: 1.2rem;
-    }
-
-    .advertencia-pago {
-      background: var(--gris-muy-claro);
-      border-left: 5px solid var(--naranja);
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-    }
-
-    .advertencia-pago .icono {
-      font-size: 1.5rem;
-      margin-right: 15px;
-      color: var(--naranja);
+      min-width: 70px;
+      text-align: center;
     }
 
     footer {
       text-align: center;
       font-size: 0.9rem;
       color: var(--gris-oscuro);
-      padding: 25px 0;
-      margin-top: 30px;
-      border-top: 1px solid var(--gris-medio);
+      padding: 20px 0;
+      margin-top: 20px;
+      border-top: 2px dashed var(--gris-medio);
     }
 
     .emoji {
@@ -312,37 +319,41 @@
       margin-right: 5px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       .menu-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
       }
       
-      h1 {
-        font-size: 1.8rem;
-      }
-      
-      .anuncio h2 {
-        font-size: 1.5rem;
+      .container {
+        padding: 10px;
       }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
-      <div class="logo-box">
-        <img src="logo.png" alt="Logo Colegio Tlahtoani">
+    <!-- HEADER REDISEÑADO -->
+    <div class="header-container">
+      <div class="logo-section">
+        <div class="logo-box">
+          <img src="logo.png" alt="Logo Colegio Tlahtoani">
+        </div>
       </div>
-      <h1>Cooperativa Escolar</h1>
-      <p class="subtitle">Deliciosos alimentos y bebidas para nuestra comunidad estudiantil</p>
-    </header>
+      <div class="title-section">
+        <h1>Cooperativa Escolar</h1>
+        <p class="subtitle">¡Deliciosos alimentos para niños felices! 🍎😊</p>
+      </div>
+    </div>
 
+    <!-- ANUNCIO REDISEÑADO -->
     <section class="anuncio">
-      <h2>¡Esta Semana Iniciamos! 🎊</h2>
-      <p>Estamos emocionados de anunciar que esta semana comenzamos con nuestra cooperativa escolar. 
-      Disfruta de nuestros deliciosos desayunos, comidas y snacks a precios accesibles.</p>
+      <h2>¡Esta Semana Empezamos! 🎊</h2>
+      <p>Estamos muy emocionados de comenzar con nuestra cooperativa escolar. 
+      ¡Ven y disfruta de nuestros deliciosos desayunos, comidas y snacks!</p>
     </section>
 
+    <!-- MENÚ -->
     <div class="menu-grid">
       <div class="categoria-card">
         <div class="categoria-header">
@@ -470,26 +481,6 @@
         </div>
       </div>
     </div>
-
-    <section class="info-adicional">
-      <h3>Información Importante</h3>
-      <p>Todos nuestros productos están preparados con ingredientes frescos y de calidad.</p>
-      <p>Los precios pueden variar ligeramente según la temporada y disponibilidad de ingredientes.</p>
-      
-      <div class="horario">
-        <div class="horario-icono">⏰</div>
-        <div>
-          <strong>Horario de atención:</strong> Lunes a Viernes de 8:00 AM a 2:00 PM
-        </div>
-      </div>
-      
-      <div class="advertencia-pago">
-        <div class="icono">💵</div>
-        <div>
-          <strong>Pago únicamente en efectivo</strong> - No aceptamos pagos con tarjeta ni transferencias
-        </div>
-      </div>
-    </section>
 
     <footer>
       © 2025 Colegio Tlahtoani | Cooperativa Escolar - Nutrición para el Futuro
