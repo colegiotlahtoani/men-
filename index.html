@@ -219,6 +219,15 @@
             padding: 2px 6px;
             border-radius: 8px;
         }
+        .dia-semana {
+            color: var(--azul-oscuro);
+            font-weight: 700;
+            background: rgba(30, 136, 229, 0.1);
+            padding: 2px 8px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            margin-left: 6px;
+        }
         .producto-precio {
             font-weight: 700;
             color: var(--azul-oscuro);
@@ -239,6 +248,13 @@
             border-radius: 12px;
             margin-top: 4px;
             font-weight: 600;
+        }
+        .info-dias {
+            text-align: center;
+            margin: 10px 0 20px;
+            color: var(--gris-oscuro);
+            font-size: 0.9rem;
+            font-style: italic;
         }
         .nutricion {
             background: var(--gradient-3);
@@ -356,6 +372,7 @@
         <div class="menu-grid">
             <div class="categoria-card active" id="desayunos">
                 <div class="categoria-header">Desayunos</div>
+                <div class="info-dias">Disponibles de lunes a viernes</div>
                 <div class="productos">
                     <div class="producto">
                         <div class="producto-info">
@@ -389,15 +406,13 @@
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Sushi</div>
-                            <div class="producto-etiqueta">Viernes</div>
+                            <div class="producto-nombre">Sushi <span class="dia-semana">VIERNES</span></div>
                         </div>
                         <div class="producto-precio">$60</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Waffles con miel y fruta</div>
-                            <div class="producto-etiqueta">Viernes</div>
+                            <div class="producto-nombre">Waffles con miel y fruta <span class="dia-semana">VIERNES</span></div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
@@ -409,32 +424,32 @@
                 <div class="productos">
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Chuleta con puré</div>
+                            <div class="producto-nombre">Chuleta con puré <span class="dia-semana">LUNES</span></div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Tacos de pescado empanizado <span class="cantidad">(2 pzas.)</span></div>
+                            <div class="producto-nombre">Tacos de pescado empanizado <span class="cantidad">(2 pzas.)</span> <span class="dia-semana">MARTES</span></div>
                             <div class="producto-desc">Con ensalada dulce</div>
                         </div>
                         <div class="producto-precio">$60</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Crema de brócoli con picadillo</div>
+                            <div class="producto-nombre">Crema de brócoli con picadillo <span class="dia-semana">MIÉRCOLES</span></div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Ensalada de pollo</div>
+                            <div class="producto-nombre">Ensalada de pollo <span class="dia-semana">JUEVES</span></div>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
                     <div class="producto">
                         <div class="producto-info">
-                            <div class="producto-nombre">Rollo de sushi</div>
+                            <div class="producto-nombre">Rollo de sushi <span class="dia-semana">VIERNES</span></div>
                         </div>
                         <div class="producto-precio">$60</div>
                     </div>
@@ -443,6 +458,7 @@
 
             <div class="categoria-card" id="snacks">
                 <div class="categoria-header">Snacks y Bebidas</div>
+                <div class="info-dias">Disponibles de lunes a viernes</div>
                 <div class="productos">
                     <div class="producto">
                         <div class="producto-info">
