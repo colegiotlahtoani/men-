@@ -1,459 +1,303 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cooperativa Escolar – Menú Primaria</title>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Cooperativa Escolar – Menú Primaria</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
 
-  <!-- Preload imágenes -->
-  <link rel="preload" href="imagenmenu.png" as="image" fetchpriority="high" />
-  <link rel="preload" href="logo.png" as="image" fetchpriority="high" />
+<style>
+:root{
+  --blue:#0a84ff;
+  --purple:#7c3aed;
+  --pink:#ff2d55;
+  --green:#34c759;
+  --orange:#ff9f0a;
+  --yellow:#ffd60a;
 
-  <style>
-    :root{
-      --bg: #f5f7fb;
-      --surface: rgba(255,255,255,.85);
-      --text: #111827;
-      --muted: #6b7280;
+  --bg:#f4f7ff;
+  --text:#1f2937;
+  --muted:#6b7280;
 
-      /* Colores vivos */
-      --blue: #0a84ff;
-      --purple: #7c3aed;
-      --green: #34c759;
-      --orange: #ff9f0a;
-      --pink: #ff2d55;
-      --yellow: #ffd60a;
+  --radius:22px;
+  --shadow:0 14px 30px rgba(0,0,0,.12);
+}
 
-      --shadow: 0 16px 40px rgba(0,0,0,.10);
-      --radius-xl: 26px;
-      --radius-lg: 18px;
-      --radius-md: 16px;
+*{box-sizing:border-box;margin:0;padding:0;}
 
-      --border: rgba(17,24,39,.10);
-    }
+body{
+  font-family:Inter,sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 10%, #ffe4e6 0%, transparent 40%),
+    radial-gradient(circle at 90% 10%, #e0e7ff 0%, transparent 40%),
+    radial-gradient(circle at 50% 100%, #dcfce7 0%, transparent 40%),
+    var(--bg);
+}
 
-    *{box-sizing:border-box;margin:0;padding:0;}
+.container{
+  width:min(1100px,calc(100% - 24px));
+  margin:auto;
+  padding:16px 0 30px;
+}
 
-    body{
-      font-family: Inter, sans-serif;
-      background:
-        radial-gradient(600px 400px at 10% 10%, rgba(124,58,237,.18), transparent),
-        radial-gradient(600px 400px at 90% 10%, rgba(255,45,85,.15), transparent),
-        radial-gradient(700px 500px at 50% 100%, rgba(255,159,10,.18), transparent),
-        var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.45;
-    }
+/* HEADER */
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  background:white;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
 
-    .container{
-      width: min(1100px, calc(100% - 24px));
-      margin:auto;
-      padding:14px 0 22px;
-    }
+.logo-box{
+  width:50px;height:50px;
+  border-radius:16px;
+  background:white;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+}
+.logo-box img{width:80%;}
 
-    /* TOPBAR */
-    .topbar{
-      position: sticky;
-      top:10px;
-      z-index: 50;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:12px;
-      border-radius:var(--radius-xl);
-      background:var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,.7);
-    }
+.school{font-weight:900;font-size:1.05rem;}
+.subtitle{color:var(--muted);font-weight:600;font-size:.9rem;}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width: 0;
-    }
+/* HERO */
+.hero{
+  margin-top:14px;
+  background:linear-gradient(135deg,#fff,#fef9ff);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
 
-    .logo-box{
-      width:50px;height:50px;
-      border-radius:16px;
-      background:white;
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      box-shadow:0 6px 14px rgba(0,0,0,.12);
-      border: 1px solid var(--border);
-      flex: 0 0 auto;
-    }
-    .logo-box img{width:78%;height:auto;object-fit:contain;}
+.hero-inner{padding:16px;}
 
-    .brand-text{min-width:0;}
-    .school{
-      font-weight:900;
-      font-size:1rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .subtitle{
-      font-size:.85rem;
-      color:var(--muted);
-      font-weight:600;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
+.hero h1{
+  font-size:1.5rem;
+  font-weight:900;
+  background:linear-gradient(90deg,var(--blue),var(--purple),var(--pink));
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-    /* HERO */
-    .hero{
-      margin-top:14px;
-      border-radius:var(--radius-xl);
-      overflow:hidden;
-      background:linear-gradient(135deg,#ffffff,#f0f4ff);
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(255,255,255,.8);
-    }
+.badge{
+  display:inline-block;
+  margin-top:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:800;
+  background:linear-gradient(90deg,var(--green),var(--yellow));
+}
 
-    .hero-inner{
-      padding:14px;
-      display:grid;
-      gap:12px;
-    }
+.cover img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  margin-top:12px;
+}
 
-    .hero-title h1{
-      font-size:1.4rem;
-      font-weight:900;
-      background: linear-gradient(90deg,var(--blue),var(--purple),var(--pink));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      letter-spacing: .2px;
-    }
+/* TABS */
+.tabs{
+  display:flex;
+  gap:10px;
+  margin-top:16px;
+  overflow-x:auto;
+}
 
-    .badge{
-      display:inline-block;
-      margin-top:6px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:linear-gradient(90deg,var(--green),var(--yellow));
-      font-weight:800;
-      font-size:.85rem;
-    }
+.tab{
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:800;
+  cursor:pointer;
+  border:none;
+  color:white;
+}
 
-    .cover{
-      border-radius:var(--radius-lg);
-      overflow:hidden;
-      border: 1px solid var(--border);
-    }
-    .cover img{
-      width:100%;
-      height:210px;
-      object-fit:cover;
-      display:block;
-    }
+.tab:nth-child(1){background:linear-gradient(90deg,#fb7185,#f43f5e);}
+.tab:nth-child(2){background:linear-gradient(90deg,#60a5fa,#2563eb);}
+.tab:nth-child(3){background:linear-gradient(90deg,#34d399,#059669);}
 
-    /* TABS */
-    .tabs{
-      margin-top: 14px;
-      display:flex;
-      gap:10px;
-      overflow-x:auto;
-      padding: 6px 2px 10px;
-      scrollbar-width: none;
-    }
-    .tabs::-webkit-scrollbar{display:none;}
+.tab.active{
+  outline:3px solid white;
+}
 
-    .tab{
-      flex: 0 0 auto;
-      border: 1px solid rgba(255,255,255,.75);
-      background: rgba(255,255,255,.72);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      padding: 10px 14px;
-      border-radius: 999px;
-      font-weight: 850;
-      font-size: .9rem;
-      color: #1f2937;
-      cursor: pointer;
-      box-shadow: 0 10px 22px rgba(0,0,0,.08);
-      transition: transform .15s ease;
-      white-space: nowrap;
-    }
-    .tab:active{transform: scale(.98);}
+/* CARDS */
+.menu-grid{margin-top:14px;}
 
-    .tab.active{
-      color: white;
-      border: 0;
-      background: linear-gradient(90deg,var(--blue),var(--purple));
-      box-shadow: 0 14px 20px rgba(10,132,255,.20);
-    }
+.card{
+  display:none;
+  background:white;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.card.active{display:block;}
 
-    /* GRID */
-    .menu-grid{
-      display:grid;
-      gap:12px;
-      margin-top: 10px;
-    }
-    @media(min-width:860px){
-      .menu-grid{grid-template-columns:repeat(2,1fr);}
-    }
+.card-top{
+  padding:14px;
+  font-weight:900;
+  color:white;
+  font-size:1.1rem;
+}
 
-    /* CARD */
-    .card{
-      background: linear-gradient(160deg,#ffffff,#f9fbff);
-      border-radius: var(--radius-xl);
-      overflow:hidden;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255,255,255,.75);
-      display:none;
-    }
-    .card.active{display:block;}
+#desayunos .card-top{
+  background:linear-gradient(90deg,#fb7185,#f43f5e);
+}
+#comidas .card-top{
+  background:linear-gradient(90deg,#60a5fa,#2563eb);
+}
+#snacks .card-top{
+  background:linear-gradient(90deg,#34d399,#059669);
+}
 
-    .card-top{
-      padding:12px;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      background: linear-gradient(90deg,var(--blue),var(--purple));
-      color:white;
-      font-weight:900;
-      letter-spacing:.2px;
-      font-size: 1rem;
-    }
+.content{padding:14px;display:grid;gap:10px;}
 
-    .content{
-      padding:12px;
-      display:grid;
-      gap:10px;
-    }
+.producto{
+  display:flex;
+  justify-content:space-between;
+  background:#f9fafb;
+  padding:12px;
+  border-radius:16px;
+  font-weight:700;
+}
 
-    .producto{
-      display:flex;
-      justify-content:space-between;
-      gap:12px;
-      padding:12px;
-      border-radius: 18px;
-      background: #fff;
-      box-shadow: 0 6px 14px rgba(0,0,0,.08);
-      border: 1px solid rgba(17,24,39,.06);
-    }
+.price{
+  font-weight:900;
+  color:#111;
+}
 
-    .producto .info{
-      font-weight: 750;
-      color:#1f2937;
-    }
+.day-pill{
+  display:inline-block;
+  margin-top:6px;
+  font-size:.75rem;
+  font-weight:900;
+  padding:6px 10px;
+  border-radius:999px;
+  background:#fde68a;
+}
 
-    .producto .price{
-      font-weight: 900;
-      color: #0b1220;
-      white-space: nowrap;
-    }
+/* NUTRICIÓN */
+.nutricion{
+  margin-top:18px;
+  background:linear-gradient(135deg,#fff,#f0fdf4);
+  border-radius:var(--radius);
+  padding:18px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
 
-    .day-pill{
-      display:inline-block;
-      margin-top:6px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: .75rem;
-      font-weight: 900;
-      background: rgba(255,159,10,.14);
-      border: 1px solid rgba(255,159,10,.25);
-      color:#0b1220;
-    }
+.nutricion h2{
+  font-weight:900;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  -webkit-background-clip:text;
+  color:transparent;
+}
 
-    .info strong{
-      background: linear-gradient(90deg,var(--orange),var(--pink));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-    }
-
-    /* NUTRICIÓN */
-    .nutricion{
-      margin-top:16px;
-      background:linear-gradient(135deg,#ffffff,#fef9ff);
-      border-radius:var(--radius-xl);
-      padding:16px;
-      text-align:center;
-      box-shadow:var(--shadow);
-      border: 1px solid rgba(255,255,255,.8);
-    }
-    .nutricion h2{
-      font-size:1.2rem;
-      font-weight:900;
-      background: linear-gradient(90deg,var(--green),var(--blue));
-      -webkit-background-clip:text;
-      background-clip:text;
-      color:transparent;
-      letter-spacing:.2px;
-    }
-    .nutricion p{
-      color:var(--muted);
-      font-weight:600;
-      font-size:.9rem;
-      margin-top:6px;
-    }
-
-    footer{
-      text-align:center;
-      margin-top:14px;
-      font-size:.8rem;
-      color:var(--muted);
-      font-weight:600;
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      * { transition: none !important; animation: none !important; }
-    }
-  </style>
+footer{
+  text-align:center;
+  margin-top:16px;
+  color:var(--muted);
+  font-weight:600;
+}
+</style>
 </head>
 
 <body>
 <div class="container">
 
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <div class="brand">
-      <div class="logo-box">
-        <img src="logo.png" alt="Logo Cooperativa Escolar">
-      </div>
-      <div class="brand-text">
-        <div class="school">Cooperativa Escolar</div>
-        <div class="subtitle">Menú – Primaria</div>
-      </div>
+<div class="topbar">
+  <div class="logo-box">
+    <img src="logo.png" alt="Logo">
+  </div>
+  <div>
+    <div class="school">Cooperativa Escolar</div>
+    <div class="subtitle">Menú Primaria</div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Menú de Primaria 🎒</h1>
+    <div class="badge">🧠💪 Comer bien es aprender mejor</div>
+    <div class="cover">
+      <img src="imagenmenu.png">
     </div>
   </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <div>
-        <h1>Menú de Primaria</h1>
-        <div class="badge">🧠💪 Alimentación saludable</div>
-      </div>
-      <div class="cover">
-        <img src="imagenmenu.png" alt="Menú Cooperativa Escolar">
-      </div>
-    </div>
-  </section>
+<div class="tabs">
+  <button class="tab active" data-target="desayunos">Desayunos</button>
+  <button class="tab" data-target="comidas">Comidas</button>
+  <button class="tab" data-target="snacks">Snacks</button>
+</div>
 
-  <!-- TABS -->
-  <div class="tabs" role="tablist" aria-label="Categorías del menú">
-    <button class="tab active" role="tab" aria-selected="true" data-target="desayunos">Desayunos</button>
-    <button class="tab" role="tab" aria-selected="false" data-target="comidas">Comidas</button>
-    <button class="tab" role="tab" aria-selected="false" data-target="snacks">Snacks y Bebidas</button>
-  </div>
+<div class="menu-grid">
 
-  <!-- CONTENT -->
-  <div class="menu-grid">
-    <!-- DESAYUNOS (IGUAL AL QUE TENÍAS) -->
-    <section class="card active" id="desayunos" role="tabpanel">
-      <div class="card-top">Desayunos</div>
-      <div class="content">
-        <div class="producto"><div class="info">Quesadillas</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Lonche de pierna</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Tacos de barbacoa (2 pzas.)</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Burritas de pierna (2 pzas.)</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Huevo al gusto con frijoles</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Sincronizadas (2 pzas.)</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Lonches de jamón</div><div class="price">$50</div></div>
-        <div class="producto"><div class="info">Sandwich de jamón</div><div class="price">$40</div></div>
-        <div class="producto"><div class="info">Hamburguesas</div><div class="price">$60</div></div>
-        <div class="producto"><div class="info">Sushi</div><div class="price">$60</div></div>
-        <div class="producto"><div class="info">Waffles con miel y fruta</div><div class="price">$50</div></div>
-      </div>
-    </section>
+<!-- DESAYUNOS -->
+<section class="card active" id="desayunos">
+<div class="card-top">Desayunos 🍳</div>
+<div class="content">
+<div class="producto"><span>Quesadillas</span><span class="price">$50</span></div>
+<div class="producto"><span>Lonche de pierna</span><span class="price">$50</span></div>
+<div class="producto"><span>Tacos de barbacoa</span><span class="price">$50</span></div>
+<div class="producto"><span>Burritas</span><span class="price">$50</span></div>
+<div class="producto"><span>Waffles con fruta</span><span class="price">$50</span></div>
+</div>
+</section>
 
-    <!-- COMIDAS (EL QUE YA TE HABÍA QUEDADO) -->
-    <section class="card" id="comidas" role="tabpanel">
-      <div class="card-top">Comidas</div>
-      <div class="content">
-        <div class="producto">
-          <div class="info">
-            <strong>MARTES:</strong> Caldo de albóndigas con verdura y arroz
-            <span class="day-pill">MARTES</span>
-          </div>
-          <div class="price">$50</div>
-        </div>
+<!-- COMIDAS -->
+<section class="card" id="comidas">
+<div class="card-top">Comidas 🍲</div>
+<div class="content">
+<div class="producto"><div><strong>Martes</strong><div class="day-pill">Albóndigas con arroz</div></div><span class="price">$50</span></div>
+<div class="producto"><div><strong>Miércoles</strong><div class="day-pill">Espagueti boloñesa</div></div><span class="price">$50</span></div>
+<div class="producto"><div><strong>Jueves</strong><div class="day-pill">Códitos con pollo</div></div><span class="price">$50</span></div>
+<div class="producto"><div><strong>Viernes</strong><div class="day-pill">Enfrijoladas</div></div><span class="price">$50</span></div>
+</div>
+</section>
 
-        <div class="producto">
-          <div class="info">
-            <strong>MIÉRCOLES:</strong> Espagueti a la boloñesa
-            <span class="day-pill">MIÉRCOLES</span>
-          </div>
-          <div class="price">$50</div>
-        </div>
+<!-- SNACKS -->
+<section class="card" id="snacks">
+<div class="card-top">Snacks 🌽</div>
+<div class="content">
+<div class="producto"><span>Fruta picada</span><span class="price">$15</span></div>
+<div class="producto"><span>Elotes</span><span class="price">$30</span></div>
+<div class="producto"><span>Nieves</span><span class="price">$35</span></div>
+<div class="producto"><span>Aguas frescas</span><span class="price">$10</span></div>
+</div>
+</section>
 
-        <div class="producto">
-          <div class="info">
-            <strong>JUEVES:</strong> Códitos con pollo en tiras
-            <span class="day-pill">JUEVES</span>
-          </div>
-          <div class="price">$50</div>
-        </div>
+</div>
 
-        <div class="producto">
-          <div class="info">
-            <strong>VIERNES:</strong> Enfrijoladas con queso
-            <span class="day-pill">VIERNES</span>
-          </div>
-          <div class="price">$50</div>
-        </div>
-      </div>
-    </section>
+<section class="nutricion">
+<h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
+<p>Cada platillo está pensado para dar energía y ayudar a aprender mejor.</p>
+</section>
 
-    <!-- SNACKS (IGUAL AL QUE TENÍAS) -->
-    <section class="card" id="snacks" role="tabpanel">
-      <div class="card-top">Snacks y Bebidas</div>
-      <div class="content">
-        <div class="producto"><div class="info">Fruta picada</div><div class="price">$15</div></div>
-        <div class="producto"><div class="info">Elotes con crema y queso o sal y limón</div><div class="price">$30</div></div>
-        <div class="producto"><div class="info">Jicaletas</div><div class="price">$15</div></div>
-        <div class="producto"><div class="info">Nieves de fruta natural</div><div class="price">$35</div></div>
-        <div class="producto"><div class="info">Chocomilk</div><div class="price">$20</div></div>
-        <div class="producto"><div class="info">Fruta con chamoy, sal y limón</div><div class="price">$15</div></div>
-        <div class="producto"><div class="info">Aguas frescas</div><div class="price">$10</div></div>
-      </div>
-    </section>
-  </div>
-
-  <!-- NUTRICIÓN -->
-  <section class="nutricion">
-    <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
-    <p>Cada platillo está planeado para aportar energía, nutrientes esenciales y bienestar a nuestros estudiantes.</p>
-  </section>
-
-  <footer>© 2025 Cooperativa Escolar | Nutrición para el Futuro</footer>
+<footer>© 2025 Cooperativa Escolar</footer>
 
 </div>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tabs = document.querySelectorAll('.tab');
-    const panels = document.querySelectorAll('.card');
+const tabs=document.querySelectorAll(".tab");
+const cards=document.querySelectorAll(".card");
 
-    function activate(targetId){
-      tabs.forEach(t => {
-        const on = t.dataset.target === targetId;
-        t.classList.toggle('active', on);
-        t.setAttribute('aria-selected', on ? 'true' : 'false');
-      });
-      panels.forEach(p => p.classList.toggle('active', p.id === targetId));
-    }
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => activate(tab.dataset.target));
-    });
-  });
+tabs.forEach(tab=>{
+  tab.onclick=()=>{
+    tabs.forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    cards.forEach(c=>c.classList.remove("active"));
+    document.getElementById(tab.dataset.target).classList.add("active");
+  }
+});
 </script>
 
 </body>
