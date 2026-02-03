@@ -32,11 +32,7 @@
             --gradient-3: linear-gradient(135deg, var(--naranja), var(--amarillo));
             --gradient-4: linear-gradient(135deg, var(--morado), #5E35B1);
         }
-        * {
-            box-sizing: border-box;
-            margin:0;
-            padding:0;
-        }
+        * { box-sizing: border-box; margin:0; padding:0; }
         body {
             font-family: Inter, sans-serif;
             background: var(--gris-muy-claro);
@@ -45,11 +41,7 @@
             line-height: 1.5;
             padding-bottom: 20px;
         }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 16px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 16px; }
         header {
             display: flex;
             justify-content: center;
@@ -65,15 +57,12 @@
         header::after {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             height: 4px;
             background: var(--gradient-3);
         }
         .logo-box {
-            width: 100px;
-            height: 100px;
+            width: 100px; height: 100px;
             background: var(--blanco);
             border-radius: 16px;
             padding: 8px;
@@ -84,16 +73,8 @@
             justify-content: center;
             z-index: 1;
         }
-        .logo-box img {
-            width: 80%;
-            height: auto;
-            object-fit: contain;
-        }
-        .hero {
-            text-align: center;
-            margin-bottom: 24px;
-            position: relative;
-        }
+        .logo-box img { width: 80%; height: auto; object-fit: contain; }
+        .hero { text-align: center; margin-bottom: 24px; position: relative; }
         .hero-title {
             background: var(--gradient-4);
             color: var(--blanco);
@@ -121,9 +102,7 @@
             padding-bottom: 8px;
             scrollbar-width: none;
         }
-        .categorias-tabs::-webkit-scrollbar {
-            display: none;
-        }
+        .categorias-tabs::-webkit-scrollbar { display: none; }
         .categoria-tab {
             padding: 12px 20px;
             background: var(--blanco);
@@ -140,14 +119,9 @@
             color: var(--blanco);
             box-shadow: 0 4px 12px rgba(67, 160, 71, 0.3);
         }
-        .menu-grid {
-            display: grid;
-            gap: 20px;
-        }
+        .menu-grid { display: grid; gap: 20px; }
         @media (min-width: 768px) {
-            .menu-grid {
-                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            }
+            .menu-grid { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
         }
         .categoria-card {
             background: var(--blanco);
@@ -158,10 +132,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: none;
         }
-        .categoria-card.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
+        .categoria-card.active { display: block; animation: fadeIn 0.5s ease; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -175,9 +146,7 @@
             font-size: 1.2rem;
             position: relative;
         }
-        .productos {
-            padding: 16px 20px;
-        }
+        .productos { padding: 16px 20px; }
         .producto {
             display: flex;
             justify-content: space-between;
@@ -186,10 +155,7 @@
             border-bottom: 1px dashed var(--gris-medio);
             align-items: flex-start;
         }
-        .producto-info {
-            flex: 1;
-            padding-right: 10px;
-        }
+        .producto-info { flex: 1; padding-right: 10px; }
         .producto-precio {
             font-weight: 700;
             color: var(--azul-oscuro);
@@ -226,9 +192,7 @@
             margin-top: 26px;
             border-top: 1px solid var(--gris-medio);
         }
-        .producto-info strong {
-            color: var(--azul-oscuro);
-        }
+        .producto-info strong { color: var(--azul-oscuro); }
     </style>
 </head>
 <body>
@@ -238,7 +202,7 @@
                 <img src="logo.png" alt="Logo Cooperativa Escolar">
             </div>
         </header>
-        
+
         <section class="hero">
             <div class="hero-title">Cooperativa Escolar</div>
             <img src="imagenmenu.png" alt="Menú Cooperativa Escolar Portada">
@@ -251,8 +215,8 @@
             <div class="categoria-tab" data-categoria="snacks">Snacks y Bebidas</div>
         </div>
 
-        <!-- DESAYUNOS ACTUALIZADO -->
         <div class="menu-grid">
+            <!-- DESAYUNOS (SIN CAMBIOS) -->
             <div class="categoria-card active" id="desayunos">
                 <div class="categoria-header">Desayunos</div>
                 <div class="productos">
@@ -270,22 +234,14 @@
                 </div>
             </div>
 
-            <!-- 🍽️ COMIDAS PRIMARIA – ACTUALIZADO COMPLETO CON NUEVO MENÚ -->
+            <!-- COMIDAS (ACTUALIZADO A TU NUEVO MENÚ) -->
             <div class="categoria-card" id="comidas">
                 <div class="categoria-header">Comidas</div>
-
                 <div class="productos">
-                    <div class="producto">
-                        <div class="producto-info">
-                            <strong>LUNES:</strong> Ensalada de atún con códito y verdura + Crema y galletas saladas
-                            <span class="dia-semana">LUNES</span>
-                        </div>
-                        <div class="producto-precio">$50</div>
-                    </div>
 
                     <div class="producto">
                         <div class="producto-info">
-                            <strong>MARTES:</strong> Caldo de pollo con verdura y arroz
+                            <strong>MARTES:</strong> Caldo de albóndigas con verdura y arroz
                             <span class="dia-semana">MARTES</span>
                         </div>
                         <div class="producto-precio">$50</div>
@@ -293,7 +249,7 @@
 
                     <div class="producto">
                         <div class="producto-info">
-                            <strong>MIÉRCOLES:</strong> Nugget de pescado + Espagueti + Zanahoria rallada con sal y limón
+                            <strong>MIÉRCOLES:</strong> Espagueti a la boloñesa
                             <span class="dia-semana">MIÉRCOLES</span>
                         </div>
                         <div class="producto-precio">$50</div>
@@ -301,8 +257,16 @@
 
                     <div class="producto">
                         <div class="producto-info">
-                            <strong>JUEVES:</strong> Sopa de fideo con verduras
+                            <strong>JUEVES:</strong> Códitos con pollo en tiras
                             <span class="dia-semana">JUEVES</span>
+                        </div>
+                        <div class="producto-precio">$50</div>
+                    </div>
+
+                    <div class="producto">
+                        <div class="producto-info">
+                            <strong>VIERNES:</strong> Enfrijoladas con queso
+                            <span class="dia-semana">VIERNES</span>
                         </div>
                         <div class="producto-precio">$50</div>
                     </div>
@@ -310,7 +274,7 @@
                 </div>
             </div>
 
-            <!-- SNACKS ACTUALIZADO -->
+            <!-- SNACKS (SIN CAMBIOS) -->
             <div class="categoria-card" id="snacks">
                 <div class="categoria-header">Snacks y Bebidas</div>
                 <div class="productos">
@@ -339,7 +303,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const tabs = document.querySelectorAll('.categoria-tab');
             const cards = document.querySelectorAll('.categoria-card');
-            
+
             tabs.forEach(tab => {
                 tab.addEventListener('click', function() {
                     const categoriaId = this.getAttribute('data-categoria');
