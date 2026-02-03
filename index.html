@@ -33,14 +33,11 @@
 
 body{
   font-family:Inter,sans-serif;
-
-  /* Colores menos difuminados (más visibles) */
   background:
     radial-gradient(500px 300px at 10% 10%, rgba(183,255,0,.45), transparent 60%),
     radial-gradient(450px 280px at 90% 15%, rgba(10,132,255,.35), transparent 60%),
     radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.35), transparent 60%),
     var(--bg);
-
   color:var(--text);
 }
 
@@ -98,7 +95,6 @@ body{
   font-weight:900;
   letter-spacing:.5px;
   line-height:1.1;
-
   background:linear-gradient(90deg,#0a84ff,#34c759,#7c3aed);
   -webkit-background-clip:text;
   background-clip:text;
@@ -190,7 +186,7 @@ body{
 .item{
   display:flex;
   justify-content:space-between;
-  gap:10px;
+  gap:12px;
   font-size:.92rem;
   color:#374151;
   font-weight:600;
@@ -204,6 +200,9 @@ body{
   min-width:0;
 }
 
+.item-left > div{min-width:0;}
+.item-left strong{font-weight:900;color:#111827;}
+
 .bullet{
   width:8px;height:8px;
   background:var(--orange);
@@ -212,17 +211,21 @@ body{
   flex:0 0 auto;
 }
 
+/* PRECIOS: más aire + mejor en celular */
 .price{
   font-weight:900;
   color:#111827;
   background:rgba(255,159,10,.18);
   border:1px solid rgba(255,159,10,.22);
-  padding:6px 10px;
+  padding:7px 12px;
   border-radius:999px;
   white-space:nowrap;
-  font-size:.86rem;
+  font-size:.88rem;
+  margin-left:8px;
+  flex:0 0 auto;
 }
 
+/* Tag verdecito (antes “day-pill”) */
 .day-pill{
   display:inline-block;
   margin-top:8px;
@@ -235,7 +238,7 @@ body{
   color:#111827;
 }
 
-/* Tabs (con el mismo look del kinder usando .badge) */
+/* Tabs */
 .tabs{
   display:flex;
   gap:10px;
@@ -280,7 +283,6 @@ body{
   text-align:center;
   box-shadow:var(--shadow);
 }
-
 .nutricion h2{
   font-size:1.2rem;
   font-weight:900;
@@ -288,7 +290,6 @@ body{
   -webkit-background-clip:text;
   color:transparent;
 }
-
 .nutricion p{
   color:var(--muted);
   font-weight:600;
@@ -303,13 +304,34 @@ footer{
   color:var(--muted);
   font-weight:600;
 }
+
+/* ====== Mobile: todo en una columna + precios abajo si se aprieta ====== */
+@media (max-width: 520px){
+  .container{ width: min(1000px, calc(100% - 18px)); }
+  .hero-inner{ padding: 14px; }
+  .cover img{ height: 190px; }
+
+  .menu-grid{ grid-template-columns: 1fr; }
+
+  .item{ gap:10px; }
+  .price{ padding:7px 11px; }
+
+  /* Si la línea es larga, el precio baja para que no se vea apretado */
+  .item.is-long{
+    flex-direction: column;
+    align-items:flex-start;
+  }
+  .item.is-long .price{
+    margin-left:0;
+    margin-top:8px;
+  }
+}
 </style>
 </head>
 
 <body>
 <div class="container">
 
-  <!-- MISMA TOPBAR QUE KINDER -->
   <div class="topbar">
     <div class="brand">
       <div class="logo-box">
@@ -322,7 +344,6 @@ footer{
     </div>
   </div>
 
-  <!-- MISMO HERO QUE KINDER -->
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-title">
@@ -341,134 +362,89 @@ footer{
       <h2>Platillos de la cooperativa</h2>
     </div>
 
-    <!-- Tabs con el MISMO estilo (simple, rounded, verde al activar) -->
     <div class="tabs">
       <div class="tab active" data-panel="panel-desayunos">Desayunos</div>
       <div class="tab" data-panel="panel-comidas">Comidas</div>
       <div class="tab" data-panel="panel-snacks">Snacks y Bebidas</div>
     </div>
 
-    <!-- ===== DESAYUNOS ===== -->
+    <!-- DESAYUNOS -->
     <div class="panel active" id="panel-desayunos">
       <div class="menu-grid">
-
         <div class="day-card">
           <div class="day-top">Desayunos <span class="mini-tag">Primaria</span></div>
           <div class="content">
             <div class="block">
               <div class="block-title">Opciones <span class="pill">AM</span></div>
 
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Quesadillas</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Lonche de pierna</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Tacos de barbacoa (2 pzas.)</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Burritas de pierna (2 pzas.)</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Huevo al gusto con frijoles</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Sincronizadas (2 pzas.)</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Lonches de jamón</div>
-                <span class="price">$50</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Sandwich de jamón</div>
-                <span class="price">$40</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Hamburguesas</div>
-                <span class="price">$60</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Sushi</div>
-                <span class="price">$60</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Waffles con miel y fruta</div>
-                <span class="price">$50</span>
-              </div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Quesadillas</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Lonche de pierna</div><span class="price">$50</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Tacos de barbacoa (2 pzas.)</div><span class="price">$50</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Burritas de pierna (2 pzas.)</div><span class="price">$50</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Huevo al gusto con frijoles</div><span class="price">$50</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Sincronizadas (2 pzas.)</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Lonches de jamón</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Sandwich de jamón</div><span class="price">$40</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Hamburguesas</div><span class="price">$60</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Sushi</div><span class="price">$60</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Waffles con miel y fruta</div><span class="price">$50</span></div>
 
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- ===== COMIDAS ===== -->
+    <!-- COMIDAS -->
     <div class="panel" id="panel-comidas">
       <div class="menu-grid">
-
         <div class="day-card">
           <div class="day-top">Comidas <span class="mini-tag">Primaria</span></div>
           <div class="content">
             <div class="block">
               <div class="block-title">Menú por día <span class="pill">PM</span></div>
 
-              <div class="item">
+              <!-- Quité el día repetido: SOLO queda el de arriba (strong) -->
+              <!-- Pero “strong” ahora tiene el diseño verdecito (day-pill) -->
+              <div class="item is-long">
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <strong>MARTES:</strong> Caldo de albóndigas con verdura y arroz
                     <span class="day-pill">MARTES</span>
+                    <div style="margin-top:6px;"><strong>Caldo de albóndigas con verdura y arroz</strong></div>
                   </div>
                 </div>
                 <span class="price">$50</span>
               </div>
 
-              <div class="item">
+              <div class="item is-long">
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <strong>MIÉRCOLES:</strong> Espagueti a la boloñesa
                     <span class="day-pill">MIÉRCOLES</span>
+                    <div style="margin-top:6px;"><strong>Espagueti a la boloñesa</strong></div>
                   </div>
                 </div>
                 <span class="price">$50</span>
               </div>
 
-              <div class="item">
+              <div class="item is-long">
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <strong>JUEVES:</strong> Códitos con pollo en tiras
                     <span class="day-pill">JUEVES</span>
+                    <div style="margin-top:6px;"><strong>Códitos con pollo en tiras</strong></div>
                   </div>
                 </div>
                 <span class="price">$50</span>
               </div>
 
-              <div class="item">
+              <div class="item is-long">
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <strong>VIERNES:</strong> Enfrijoladas con queso
                     <span class="day-pill">VIERNES</span>
+                    <div style="margin-top:6px;"><strong>Enfrijoladas con queso</strong></div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -477,59 +453,29 @@ footer{
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- ===== SNACKS ===== -->
+    <!-- SNACKS -->
     <div class="panel" id="panel-snacks">
       <div class="menu-grid">
-
         <div class="day-card">
           <div class="day-top">Snacks y Bebidas <span class="mini-tag">Primaria</span></div>
           <div class="content">
             <div class="block">
               <div class="block-title">Opciones <span class="pill">Todo el día</span></div>
 
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Fruta picada</div>
-                <span class="price">$15</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Elotes con crema y queso o sal y limón</div>
-                <span class="price">$30</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Jicaletas</div>
-                <span class="price">$15</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Nieves de fruta natural</div>
-                <span class="price">$35</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Chocomilk</div>
-                <span class="price">$20</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Fruta con chamoy, sal y limón</div>
-                <span class="price">$15</span>
-              </div>
-
-              <div class="item">
-                <div class="item-left"><span class="bullet"></span>Aguas frescas</div>
-                <span class="price">$10</span>
-              </div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Fruta picada</div><span class="price">$15</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Elotes con crema y queso o sal y limón</div><span class="price">$30</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Jicaletas</div><span class="price">$15</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Nieves de fruta natural</div><span class="price">$35</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Chocomilk</div><span class="price">$20</span></div>
+              <div class="item is-long"><div class="item-left"><span class="bullet"></span>Fruta con chamoy, sal y limón</div><span class="price">$15</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Aguas frescas</div><span class="price">$10</span></div>
 
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
