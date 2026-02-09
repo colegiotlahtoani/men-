@@ -132,7 +132,7 @@ body{
 @media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:960px){.menu-grid{grid-template-columns:repeat(3,1fr);}}
 
-/* DAY CARD */
+/* CARD */
 .day-card{
   background:linear-gradient(160deg,#ffffff,#f9fff4);
   border-radius:var(--radius-xl);
@@ -208,21 +208,21 @@ body{
   flex:0 0 auto;
 }
 
-/* PRECIOS: mantener en la misma fila SIEMPRE (no bajar), solo más chicos */
+/* PRECIOS: en la misma fila, más chicos y con aire */
 .price{
   font-weight:900;
   color:#111827;
   background:rgba(255,159,10,.18);
   border:1px solid rgba(255,159,10,.22);
-  padding:6px 9px;           /* más chico */
+  padding:6px 9px;
   border-radius:999px;
   white-space:nowrap;
-  font-size:.80rem;          /* más chico */
+  font-size:.80rem;
   flex:0 0 auto;
-  margin-left:10px;          /* aire para que no se vea pegado */
+  margin-left:10px;
 }
 
-/* Tag verdecito */
+/* Tag verdecito para el día (sin repetir texto del día dos veces) */
 .day-pill{
   display:inline-block;
   margin-top:8px;
@@ -235,25 +235,25 @@ body{
   color:#111827;
 }
 
-/* Tabs: que se vean completos en celular (sin recorte) y con más separación abajo */
+/* Tabs: 3 en fila, completos en celular y con espacio abajo */
 .tabs{
   display:flex;
-  justify-content:space-between;  /* reparte y evita “recorte” */
+  justify-content:space-between;
   gap:10px;
   padding:2px 6px;
   margin-top:14px;
-  margin-bottom:14px;            /* más separación con lo de abajo */
+  margin-bottom:14px;
 }
 
 .tab{
-  flex:1;                         /* cada uno ocupa un tercio */
+  flex:1;
   text-align:center;
   padding:10px 10px;
   border-radius:999px;
   background:rgba(255,255,255,.92);
   font-weight:900;
   cursor:pointer;
-  white-space:normal;             /* permite salto de línea si hace falta */
+  white-space:normal;
   line-height:1.1;
   box-shadow:0 6px 14px rgba(0,0,0,.08);
   border:1px solid rgba(17,24,39,.10);
@@ -304,7 +304,6 @@ footer{
   font-weight:600;
 }
 
-/* Mobile: precios más chicos todavía, tabs no se “recortan” */
 @media (max-width: 420px){
   .cover img{height:185px;}
   .tabs{gap:8px;margin-bottom:16px;}
@@ -347,7 +346,6 @@ footer{
       <h2>Platillos de la cooperativa</h2>
     </div>
 
-    <!-- Tabs (3 en fila, completos en celular) -->
     <div class="tabs">
       <div class="tab active" data-panel="panel-desayunos">Desayunos</div>
       <div class="tab" data-panel="panel-comidas">Comidas</div>
@@ -375,13 +373,16 @@ footer{
               <div class="item"><div class="item-left"><span class="bullet"></span>Sushi</div><span class="price">$60</span></div>
               <div class="item"><div class="item-left"><span class="bullet"></span>Waffles con miel y fruta</div><span class="price">$50</span></div>
 
+              <!-- NUEVO: CREPAS $50 -->
+              <div class="item"><div class="item-left"><span class="bullet"></span>Crepas</div><span class="price">$50</span></div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- COMIDAS -->
+    <!-- COMIDAS (IGUAL AL MENÚ DE KINDER, LUNES A VIERNES) -->
     <div class="panel" id="panel-comidas">
       <div class="menu-grid">
         <div class="day-card">
@@ -390,13 +391,23 @@ footer{
             <div class="block">
               <div class="block-title">Menú por día <span class="pill">PM</span></div>
 
-              <!-- Sin repetición del día: solo el verdecito -->
+              <div class="item">
+                <div class="item-left">
+                  <span class="bullet"></span>
+                  <div>
+                    <span class="day-pill">LUNES</span>
+                    <div style="margin-top:6px;">Ceviche de soya</div>
+                  </div>
+                </div>
+                <span class="price">$50</span>
+              </div>
+
               <div class="item">
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">MARTES</span>
-                    <div style="margin-top:6px;">Caldo de albóndigas con verdura y arroz</div>
+                    <div style="margin-top:6px;">Albóndigas en caldo con verdura y arroz</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -407,7 +418,7 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">MIÉRCOLES</span>
-                    <div style="margin-top:6px;">Espagueti a la boloñesa</div>
+                    <div style="margin-top:6px;">Chorizo con papas</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -418,7 +429,8 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">JUEVES</span>
-                    <div style="margin-top:6px;">Códitos con pollo en tiras</div>
+                    <div style="margin-top:6px;">Ensalada de atún con elotes, verdura y códitos</div>
+                    <div style="margin-top:6px;">Galleta salada</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -429,7 +441,8 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">VIERNES</span>
-                    <div style="margin-top:6px;">Enfrijoladas con queso</div>
+                    <div style="margin-top:6px;">Espagueti con jamón</div>
+                    <div style="margin-top:6px;">Zanahoria rallada</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
