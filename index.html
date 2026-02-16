@@ -47,7 +47,6 @@ body{
   padding:14px 0 22px;
 }
 
-/* TOPBAR */
 .topbar{
   position:sticky;
   top:10px;
@@ -79,7 +78,6 @@ body{
 .school{font-weight:900;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .subtitle{font-size:.85rem;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
-/* HERO */
 .hero{
   margin-top:14px;
   border-radius:var(--radius-xl);
@@ -114,7 +112,6 @@ body{
 .cover{border-radius:var(--radius-lg);overflow:hidden;}
 .cover img{width:100%;height:200px;object-fit:cover;display:block;}
 
-/* SECTION */
 .section{margin-top:16px;}
 .section-head{
   display:flex;
@@ -122,12 +119,8 @@ body{
   padding:0 6px;
   margin-bottom:10px;
 }
-.section-head h2{
-  font-size:1rem;
-  font-weight:900;
-}
+.section-head h2{font-size:1rem;font-weight:900;}
 
-/* GRID */
 .menu-grid{display:grid;gap:12px;}
 @media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:960px){.menu-grid{grid-template-columns:repeat(3,1fr);}}
@@ -208,7 +201,6 @@ body{
   flex:0 0 auto;
 }
 
-/* PRECIOS: en la misma fila, más chicos y con aire */
 .price{
   font-weight:900;
   color:#111827;
@@ -222,7 +214,7 @@ body{
   margin-left:10px;
 }
 
-/* Tag verdecito para el día (sin repetir texto del día dos veces) */
+/* Tag verdecito (para NO repetir el día) */
 .day-pill{
   display:inline-block;
   margin-top:8px;
@@ -235,7 +227,7 @@ body{
   color:#111827;
 }
 
-/* Tabs: 3 en fila, completos en celular y con espacio abajo */
+/* Tabs: 3 en fila, completos en celular + espacio abajo */
 .tabs{
   display:flex;
   justify-content:space-between;
@@ -261,17 +253,11 @@ body{
   transition:transform .15s ease, background .15s ease;
 }
 .tab:active{transform:scale(.98);}
-.tab.active{
-  background:linear-gradient(90deg,var(--green),var(--lime));
-}
+.tab.active{background:linear-gradient(90deg,var(--green),var(--lime));}
 
-/* Paneles */
 .panel{display:none;}
-.panel.active{display:block; animation:fadeIn .35s ease;}
-@keyframes fadeIn{
-  from{opacity:0;transform:translateY(10px);}
-  to{opacity:1;transform:translateY(0);}
-}
+.panel.active{display:block;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
 /* NUTRICIÓN */
 .nutricion{
@@ -296,13 +282,7 @@ body{
   margin-top:6px;
 }
 
-footer{
-  text-align:center;
-  margin-top:14px;
-  font-size:.8rem;
-  color:var(--muted);
-  font-weight:600;
-}
+footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font-weight:600;}
 
 @media (max-width: 420px){
   .cover img{height:185px;}
@@ -334,7 +314,6 @@ footer{
         <h1>Menú Primaria</h1>
         <div class="badge">🍎 Energía para aprender</div>
       </div>
-
       <div class="cover">
         <img src="imagenmenu.png" alt="Menú Escolar">
       </div>
@@ -352,7 +331,7 @@ footer{
       <div class="tab" data-panel="panel-snacks">Snacks y Bebidas</div>
     </div>
 
-    <!-- DESAYUNOS -->
+    <!-- DESAYUNOS (Cooperativa + Crepas) -->
     <div class="panel active" id="panel-desayunos">
       <div class="menu-grid">
         <div class="day-card">
@@ -373,7 +352,7 @@ footer{
               <div class="item"><div class="item-left"><span class="bullet"></span>Sushi</div><span class="price">$60</span></div>
               <div class="item"><div class="item-left"><span class="bullet"></span>Waffles con miel y fruta</div><span class="price">$50</span></div>
 
-              <!-- NUEVO: CREPAS $50 -->
+              <!-- NUEVO -->
               <div class="item"><div class="item-left"><span class="bullet"></span>Crepas</div><span class="price">$50</span></div>
 
             </div>
@@ -382,7 +361,7 @@ footer{
       </div>
     </div>
 
-    <!-- COMIDAS (IGUAL AL MENÚ DE KINDER, LUNES A VIERNES) -->
+    <!-- COMIDAS = IGUAL QUE KINDER (INFO CORRECTA) -->
     <div class="panel" id="panel-comidas">
       <div class="menu-grid">
         <div class="day-card">
@@ -396,7 +375,8 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">LUNES</span>
-                    <div style="margin-top:6px;">Ceviche de soya</div>
+                    <div style="margin-top:6px;">Sopa de arroz con verdura</div>
+                    <div style="margin-top:6px;">Pollo empanizado</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -407,7 +387,7 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">MARTES</span>
-                    <div style="margin-top:6px;">Albóndigas en caldo con verdura y arroz</div>
+                    <div style="margin-top:6px;">Espagueti a la boloñesa</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -418,7 +398,8 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">MIÉRCOLES</span>
-                    <div style="margin-top:6px;">Chorizo con papas</div>
+                    <div style="margin-top:6px;">Taquitos de bistec</div>
+                    <div style="margin-top:6px;">Frijoles de la olla</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -429,8 +410,8 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">JUEVES</span>
-                    <div style="margin-top:6px;">Ensalada de atún con elotes, verdura y códitos</div>
-                    <div style="margin-top:6px;">Galleta salada</div>
+                    <div style="margin-top:6px;">Sopa de fideo con verduras</div>
+                    <div style="margin-top:6px;">Pollo</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
@@ -441,8 +422,8 @@ footer{
                   <span class="bullet"></span>
                   <div>
                     <span class="day-pill">VIERNES</span>
-                    <div style="margin-top:6px;">Espagueti con jamón</div>
-                    <div style="margin-top:6px;">Zanahoria rallada</div>
+                    <div style="margin-top:6px;">Morisqueta (1 o 2 tortillas)</div>
+                    <div style="margin-top:6px;">Jícama</div>
                   </div>
                 </div>
                 <span class="price">$50</span>
