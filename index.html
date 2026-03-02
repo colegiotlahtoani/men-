@@ -1,144 +1,488 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menú Primaria - Colegio Tlahtoani</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Cooperativa Escolar – Menú Primaria</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
+
+<link rel="preload" href="imagenmenu.png" as="image">
+<link rel="preload" href="logo.png" as="image">
 
 <style>
+:root{
+  --bg:#f5f7fb;
+  --text:#111827;
+  --muted:#6b7280;
+
+  --blue:#0a84ff;
+  --purple:#7c3aed;
+  --green:#34c759;
+  --lime:#b7ff00;
+  --orange:#ff9f0a;
+
+  --shadow:0 16px 40px rgba(0,0,0,.10);
+  --radius-xl:26px;
+  --radius-lg:18px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
 
 body{
-font-family:'Inter',sans-serif;
-margin:0;
-background:
-radial-gradient(circle at 10% 10%,rgba(183,255,0,.45),transparent 60%),
-radial-gradient(circle at 90% 20%,rgba(10,132,255,.35),transparent 60%),
-radial-gradient(circle at 50% 90%,rgba(255,159,10,.35),transparent 60%),
-#f5f7fb;
+  font-family:Inter,sans-serif;
+  background:
+    radial-gradient(500px 300px at 10% 10%, rgba(183,255,0,.45), transparent 60%),
+    radial-gradient(450px 280px at 90% 15%, rgba(10,132,255,.35), transparent 60%),
+    radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.35), transparent 60%),
+    var(--bg);
+  color:var(--text);
 }
 
 .container{
-max-width:1100px;
-margin:auto;
-padding:20px;
+  width:min(1000px,calc(100% - 24px));
+  margin:auto;
+  padding:14px 0 22px;
 }
 
-header{
-display:flex;
-align-items:center;
-gap:15px;
-background:white;
-padding:15px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+.topbar{
+  position:sticky;
+  top:10px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:12px;
+  border-radius:var(--radius-xl);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  box-shadow:var(--shadow);
+  z-index:10;
 }
 
-.logo{
-width:50px;
-height:50px;
-border-radius:15px;
-background:white;
-display:flex;
-align-items:center;
-justify-content:center;
-}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;}
 
-.logo img{
-width:80%;
+.logo-box{
+  width:50px;height:50px;
+  border-radius:16px;
+  background:white;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  box-shadow:0 6px 14px rgba(0,0,0,.12);
+  flex:0 0 auto;
 }
+.logo-box img{width:78%;}
 
-.title{
-font-weight:900;
-font-size:20px;
-}
-
-.subtitle{
-font-size:13px;
-color:#666;
-}
+.school{font-weight:900;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.subtitle{font-size:.85rem;color:var(--muted);font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
 .hero{
-margin-top:20px;
-background:white;
-border-radius:25px;
-padding:20px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+  margin-top:14px;
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  background:linear-gradient(135deg,#ffffff,#f6fff0);
+  box-shadow:var(--shadow);
 }
 
-.hero h1{
-font-size:32px;
-font-weight:900;
-background:linear-gradient(90deg,#0a84ff,#34c759,#7c3aed);
--webkit-background-clip:text;
-color:transparent;
+.hero-inner{padding:16px;display:grid;gap:12px;}
+
+.hero-title h1{
+  font-size:clamp(1.5rem,4vw,2.1rem);
+  font-weight:900;
+  letter-spacing:.5px;
+  line-height:1.1;
+  background:linear-gradient(90deg,#0a84ff,#34c759,#7c3aed);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
 }
 
-.coop{
-margin-top:20px;
-background:white;
-padding:20px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.1);
+.badge{
+  display:inline-block;
+  margin-top:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--green),var(--lime));
+  font-weight:800;
+  font-size:.9rem;
 }
 
-.coop h2{
-margin-bottom:10px;
+.cover{border-radius:var(--radius-lg);overflow:hidden;}
+.cover img{width:100%;height:200px;object-fit:cover;display:block;}
+
+.section{margin-top:16px;}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  padding:0 6px;
+  margin-bottom:10px;
+}
+.section-head h2{font-size:1rem;font-weight:900;}
+
+.menu-grid{display:grid;gap:12px;}
+@media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:960px){.menu-grid{grid-template-columns:repeat(3,1fr);}}
+
+/* CARD */
+.day-card{
+  background:linear-gradient(160deg,#ffffff,#f9fff4);
+  border-radius:var(--radius-xl);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+
+.day-top{
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:linear-gradient(90deg,#0a84ff,#7c3aed);
+  color:white;
+  font-weight:900;
+}
+
+.mini-tag{
+  background:white;
+  color:#111;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:800;
+}
+
+.content{padding:12px;display:grid;gap:10px;}
+
+.block{
+  background:white;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+}
+
+.block-title{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:6px;
+  font-weight:900;
+}
+
+.pill{
+  background:rgba(52,199,89,.15);
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:.7rem;
+  font-weight:800;
 }
 
 .item{
-margin:4px 0;
-font-size:14px;
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:.92rem;
+  color:#374151;
+  font-weight:600;
+  align-items:flex-start;
+}
+
+.item-left{
+  display:flex;
+  gap:8px;
+  flex:1;
+  min-width:0;
+}
+
+.bullet{
+  width:8px;height:8px;
+  background:var(--orange);
+  border-radius:50%;
+  margin-top:6px;
+  flex:0 0 auto;
 }
 
 .price{
-float:right;
-font-weight:800;
+  font-weight:900;
+  color:#111827;
+  background:rgba(255,159,10,.18);
+  border:1px solid rgba(255,159,10,.22);
+  padding:6px 9px;
+  border-radius:999px;
+  white-space:nowrap;
+  font-size:.80rem;
+  flex:0 0 auto;
+  margin-left:10px;
 }
 
+/* Tag verdecito (para NO repetir el día) */
+.day-pill{
+  display:inline-block;
+  margin-top:8px;
+  font-size:.78rem;
+  font-weight:800;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(183,255,0,.20);
+  border:1px solid rgba(183,255,0,.35);
+  color:#111827;
+}
+
+/* Tabs: 3 en fila, completos en celular + espacio abajo */
+.tabs{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  padding:2px 6px;
+  margin-top:14px;
+  margin-bottom:14px;
+}
+
+.tab{
+  flex:1;
+  text-align:center;
+  padding:10px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  font-weight:900;
+  cursor:pointer;
+  white-space:normal;
+  line-height:1.1;
+  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  border:1px solid rgba(17,24,39,.10);
+  user-select:none;
+  transition:transform .15s ease, background .15s ease;
+}
+.tab:active{transform:scale(.98);}
+.tab.active{background:linear-gradient(90deg,var(--green),var(--lime));}
+
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn .35s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+
+/* NUTRICIÓN */
+.nutricion{
+  margin-top:16px;
+  background:linear-gradient(135deg,#ffffff,#f3fff0);
+  border-radius:var(--radius-xl);
+  padding:16px;
+  text-align:center;
+  box-shadow:var(--shadow);
+}
+.nutricion h2{
+  font-size:1.2rem;
+  font-weight:900;
+  background:linear-gradient(90deg,var(--green),var(--blue));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+.nutricion p{
+  color:var(--muted);
+  font-weight:600;
+  font-size:.9rem;
+  margin-top:6px;
+}
+
+footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font-weight:600;}
+
+@media (max-width: 420px){
+  .cover img{height:185px;}
+  .tabs{gap:8px;margin-bottom:16px;}
+  .tab{padding:10px 8px;font-size:.84rem;}
+  .price{font-size:.76rem;padding:6px 8px;margin-left:12px;}
+}
 </style>
 </head>
 
 <body>
-
 <div class="container">
 
-<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="logo-box">
+        <img src="logo.png" alt="Logo Cooperativa Escolar">
+      </div>
+      <div>
+        <div class="school">Cooperativa Escolar</div>
+        <div class="subtitle">Menú Escolar – Primaria</div>
+      </div>
+    </div>
+  </div>
 
-<div class="logo">
-<img src="logo.png">
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-title">
+        <h1>Menú Primaria</h1>
+        <div class="badge">🍎 Energía para aprender</div>
+      </div>
+      <div class="cover">
+        <img src="imagenmenu.png" alt="Menú Escolar">
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Platillos de la cooperativa</h2>
+    </div>
+
+    <div class="tabs">
+      <div class="tab active" data-panel="panel-desayunos">Desayunos</div>
+      <div class="tab" data-panel="panel-comidas">Comidas</div>
+      <div class="tab" data-panel="panel-snacks">Snacks y Bebidas</div>
+    </div>
+
+    <!-- DESAYUNOS (Cooperativa + Crepas) -->
+    <div class="panel active" id="panel-desayunos">
+      <div class="menu-grid">
+        <div class="day-card">
+          <div class="day-top">Desayunos <span class="mini-tag">Primaria</span></div>
+          <div class="content">
+            <div class="block">
+              <div class="block-title">Opciones <span class="pill">AM</span></div>
+
+              <div class="item"><div class="item-left"><span class="bullet"></span>Quesadillas</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Lonche de pierna</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Tacos de barbacoa (2 pzas.)</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Burritas de pierna (2 pzas.)</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Huevo al gusto con frijoles</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Sincronizadas (2 pzas.)</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Lonches de jamón</div><span class="price">$50</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Sandwich de jamón</div><span class="price">$40</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Hamburguesas</div><span class="price">$60</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Sushi</div><span class="price">$60</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Waffles con miel y fruta</div><span class="price">$50</span></div>
+
+              <!-- NUEVO -->
+              <div class="item"><div class="item-left"><span class="bullet"></span>Crepas</div><span class="price">$50</span></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMIDAS = ACTUALIZADAS SEGÚN SOLICITUD -->
+    <div class="panel" id="panel-comidas">
+      <div class="menu-grid">
+        <div class="day-card">
+          <div class="day-top">Comidas <span class="mini-tag">Primaria</span></div>
+          <div class="content">
+            <div class="block">
+              <div class="block-title">Menú por día <span class="pill">PM</span></div>
+
+              <div class="item">
+                <div class="item-left">
+                  <span class="bullet"></span>
+                  <div>
+                    <span class="day-pill">LUNES</span>
+                    <div style="margin-top:6px;">Filete de pollo con sopa de coditos</div>
+                  </div>
+                </div>
+                <span class="price">$50</span>
+              </div>
+
+              <div class="item">
+                <div class="item-left">
+                  <span class="bullet"></span>
+                  <div>
+                    <span class="day-pill">MARTES</span>
+                    <div style="margin-top:6px;">Albóndigas en caldo con verduras y arroz</div>
+                  </div>
+                </div>
+                <span class="price">$50</span>
+              </div>
+
+              <div class="item">
+                <div class="item-left">
+                  <span class="bullet"></span>
+                  <div>
+                    <span class="day-pill">MIÉRCOLES</span>
+                    <div style="margin-top:6px;">Caldo de pollo con verduras y arroz</div>
+                  </div>
+                </div>
+                <span class="price">$50</span>
+              </div>
+
+              <div class="item">
+                <div class="item-left">
+                  <span class="bullet"></span>
+                  <div>
+                    <span class="day-pill">JUEVES</span>
+                    <div style="margin-top:6px;">Espagueti a la boloñesa</div>
+                  </div>
+                </div>
+                <span class="price">$50</span>
+              </div>
+
+              <div class="item">
+                <div class="item-left">
+                  <span class="bullet"></span>
+                  <div>
+                    <span class="day-pill">VIERNES</span>
+                    <div style="margin-top:6px;">Tortas de papa salsa de jitomate y arroz blanco</div>
+                  </div>
+                </div>
+                <span class="price">$50</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SNACKS -->
+    <div class="panel" id="panel-snacks">
+      <div class="menu-grid">
+        <div class="day-card">
+          <div class="day-top">Snacks y Bebidas <span class="mini-tag">Primaria</span></div>
+          <div class="content">
+            <div class="block">
+              <div class="block-title">Opciones <span class="pill">Todo el día</span></div>
+
+              <div class="item"><div class="item-left"><span class="bullet"></span>Fruta picada</div><span class="price">$15</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Elotes con crema y queso o sal y limón</div><span class="price">$30</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Jicaletas</div><span class="price">$15</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Nieves de fruta natural</div><span class="price">$35</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Chocomilk</div><span class="price">$20</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Fruta con chamoy, sal y limón</div><span class="price">$15</span></div>
+              <div class="item"><div class="item-left"><span class="bullet"></span>Aguas frescas</div><span class="price">$10</span></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="nutricion">
+    <h2>¡Alimentación Saludable, Mente Activa! 🧠💪</h2>
+    <p>Cada platillo está planeado para aportar energía, nutrientes esenciales y bienestar a nuestros estudiantes.</p>
+  </section>
+
+  <footer>© 2025 Cooperativa Escolar | Nutrición para el Futuro</footer>
+
 </div>
 
-<div>
-<div class="title">Colegio Tlahtoani</div>
-<div class="subtitle">Menú Primaria</div>
-</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.tab');
+    const panels = document.querySelectorAll('.panel');
 
-</header>
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function() {
+        const target = this.getAttribute('data-panel');
 
-<div class="hero">
-<h1>Cooperativa Escolar</h1>
-</div>
+        tabs.forEach(t => t.classList.remove('active'));
+        this.classList.add('active');
 
-<div class="coop">
-
-<h2>Desayunos</h2>
-
-<div class="item">Crepas <span class="price">$50</span></div>
-
-<h2>Comidas</h2>
-
-<div class="item">Filete de pollo con sopa de códitos</div>
-<div class="item">Albóndigas en caldo con verduras y arroz</div>
-<div class="item">Caldo de pollo con verduras y arroz</div>
-<div class="item">Espagueti a la boloñesa</div>
-<div class="item">Tortas de papa con salsa y arroz</div>
-
-</div>
-
-</div>
+        panels.forEach(p => p.classList.remove('active'));
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
