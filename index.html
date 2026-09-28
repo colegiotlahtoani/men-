@@ -23,10 +23,15 @@
   --green:#34c759;
   --lime:#b7ff00;
   --orange:#ff9f0a;
+  --pink:#ff375f;
+  --teal:#00c7be;
 
+  --shadow-sm:0 4px 12px rgba(0,0,0,.06);
   --shadow:0 16px 40px rgba(0,0,0,.10);
+  --shadow-lg:0 24px 60px rgba(0,0,0,.14);
   --radius-xl:26px;
   --radius-lg:18px;
+  --radius-md:14px;
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -39,6 +44,7 @@ body{
     radial-gradient(500px 300px at 50% 95%, rgba(255,159,10,.35), transparent 60%),
     var(--bg);
   color:var(--text);
+  -webkit-font-smoothing:antialiased;
 }
 
 .container{
@@ -112,68 +118,162 @@ body{
 .cover{border-radius:var(--radius-lg);overflow:hidden;}
 .cover img{width:100%;height:200px;object-fit:cover;display:block;}
 
-.section{margin-top:16px;}
+/* ===== SECCIÓN MEJORADA ===== */
+.section{margin-top:22px;}
+
 .section-head{
   display:flex;
-  justify-content:space-between;
+  align-items:center;
+  gap:12px;
   padding:0 6px;
-  margin-bottom:10px;
+  margin-bottom:14px;
 }
-.section-head h2{font-size:1rem;font-weight:900;}
+.section-head .icon-badge{
+  width:44px;height:44px;
+  border-radius:14px;
+  background:linear-gradient(135deg,var(--green),var(--lime));
+  display:grid;place-items:center;
+  font-size:1.3rem;
+  box-shadow:0 8px 20px rgba(52,199,89,.35);
+  flex:0 0 auto;
+}
+.section-head h2{
+  font-size:1.15rem;
+  font-weight:900;
+  letter-spacing:.2px;
+}
+.section-head p{
+  font-size:.8rem;
+  color:var(--muted);
+  font-weight:600;
+  margin-top:2px;
+}
 
-.menu-grid{display:grid;gap:12px;}
+/* Tabs mejorados */
+.tabs{
+  display:flex;
+  gap:10px;
+  padding:6px;
+  border-radius:999px;
+  background:rgba(255,255,255,.85);
+  backdrop-filter:blur(8px);
+  box-shadow:var(--shadow-sm);
+  margin-bottom:18px;
+  border:1px solid rgba(17,24,39,.06);
+}
+
+.tab{
+  flex:1;
+  text-align:center;
+  padding:12px 10px;
+  border-radius:999px;
+  background:transparent;
+  font-weight:800;
+  font-size:.9rem;
+  cursor:pointer;
+  white-space:normal;
+  line-height:1.15;
+  user-select:none;
+  color:#4b5563;
+  transition:all .25s cubic-bezier(.4,0,.2,1);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+}
+.tab .tab-ico{font-size:1rem;}
+.tab:hover{background:rgba(52,199,89,.10);color:#111827;}
+.tab.active{
+  background:linear-gradient(90deg,var(--green),var(--lime));
+  color:#0b1a00;
+  box-shadow:0 10px 24px rgba(52,199,89,.35);
+}
+
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn .4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.menu-grid{display:grid;gap:14px;}
 @media(min-width:640px){.menu-grid{grid-template-columns:repeat(2,1fr);}}
 @media(min-width:960px){.menu-grid{grid-template-columns:repeat(3,1fr);}}
 
 /* CARD */
 .day-card{
+  position:relative;
   background:linear-gradient(160deg,#ffffff,#f9fff4);
   border-radius:var(--radius-xl);
   overflow:hidden;
   box-shadow:var(--shadow);
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+.day-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-lg);
+}
+.day-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:var(--radius-xl);
+  padding:1.5px;
+  background:linear-gradient(135deg,rgba(52,199,89,.5),rgba(10,132,255,.4),rgba(124,58,237,.4));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
 }
 
 .day-top{
-  padding:12px;
+  padding:14px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   background:linear-gradient(90deg,#0a84ff,#7c3aed);
   color:white;
   font-weight:900;
+  letter-spacing:.3px;
+  font-size:1rem;
 }
 
 .mini-tag{
-  background:white;
+  background:rgba(255,255,255,.95);
   color:#111;
-  padding:6px 10px;
+  padding:6px 12px;
   border-radius:999px;
-  font-size:.75rem;
-  font-weight:800;
+  font-size:.72rem;
+  font-weight:900;
+  letter-spacing:.4px;
+  text-transform:uppercase;
 }
 
-.content{padding:12px;display:grid;gap:10px;}
+.content{padding:14px;display:grid;gap:10px;}
 
 .block{
   background:white;
-  border-radius:16px;
-  padding:12px;
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
+  border-radius:var(--radius-md);
+  padding:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.06);
+  border:1px solid rgba(17,24,39,.05);
 }
 
 .block-title{
   display:flex;
   justify-content:space-between;
-  margin-bottom:6px;
+  align-items:center;
+  margin-bottom:10px;
   font-weight:900;
+  font-size:1rem;
+  letter-spacing:.2px;
 }
 
 .pill{
-  background:rgba(52,199,89,.15);
-  padding:4px 8px;
+  background:linear-gradient(90deg,rgba(52,199,89,.18),rgba(183,255,0,.22));
+  padding:5px 10px;
   border-radius:999px;
   font-size:.7rem;
-  font-weight:800;
+  font-weight:900;
+  color:#166534;
+  letter-spacing:.4px;
 }
 
 .item{
@@ -184,95 +284,81 @@ body{
   color:#374151;
   font-weight:600;
   align-items:flex-start;
+  padding:10px 8px;
+  border-radius:12px;
+  transition:background .2s ease, transform .2s ease;
+  border-bottom:1px dashed rgba(17,24,39,.07);
 }
+.item:last-child{border-bottom:none;}
+.item:hover{background:rgba(52,199,89,.06);transform:translateX(2px);}
 
 .item-left{
   display:flex;
-  gap:8px;
+  gap:10px;
   flex:1;
   min-width:0;
 }
 
 .bullet{
-  width:8px;height:8px;
-  background:var(--orange);
+  width:10px;height:10px;
+  background:linear-gradient(135deg,var(--orange),var(--pink));
   border-radius:50%;
-  margin-top:6px;
+  margin-top:5px;
   flex:0 0 auto;
+  box-shadow:0 0 0 3px rgba(255,159,10,.15);
 }
 
 .price{
   font-weight:900;
-  color:#111827;
-  background:rgba(255,159,10,.18);
-  border:1px solid rgba(255,159,10,.22);
-  padding:6px 9px;
+  color:#0b3b1e;
+  background:linear-gradient(135deg,rgba(52,199,89,.18),rgba(183,255,0,.28));
+  border:1px solid rgba(52,199,89,.35);
+  padding:6px 12px;
   border-radius:999px;
   white-space:nowrap;
-  font-size:.80rem;
+  font-size:.82rem;
   flex:0 0 auto;
   margin-left:10px;
+  letter-spacing:.2px;
 }
 
-/* Tag verdecito (para NO repetir el día) */
+/* Día pill mejorado */
 .day-pill{
   display:inline-block;
-  margin-top:8px;
-  font-size:.78rem;
-  font-weight:800;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(183,255,0,.20);
-  border:1px solid rgba(183,255,0,.35);
-  color:#111827;
-}
-
-/* Tabs: 3 en fila, completos en celular + espacio abajo */
-.tabs{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  padding:2px 6px;
-  margin-top:14px;
-  margin-bottom:14px;
-}
-
-.tab{
-  flex:1;
-  text-align:center;
-  padding:10px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.92);
+  margin-top:2px;
+  font-size:.72rem;
   font-weight:900;
-  cursor:pointer;
-  white-space:normal;
-  line-height:1.1;
-  box-shadow:0 6px 14px rgba(0,0,0,.08);
-  border:1px solid rgba(17,24,39,.10);
-  user-select:none;
-  transition:transform .15s ease, background .15s ease;
+  padding:5px 12px;
+  border-radius:999px;
+  background:linear-gradient(90deg,rgba(183,255,0,.35),rgba(52,199,89,.25));
+  border:1px solid rgba(52,199,89,.4);
+  color:#0b3b1e;
+  letter-spacing:.6px;
+  text-transform:uppercase;
 }
-.tab:active{transform:scale(.98);}
-.tab.active{background:linear-gradient(90deg,var(--green),var(--lime));}
 
-.panel{display:none;}
-.panel.active{display:block;animation:fadeIn .35s ease;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+/* Día feriado */
+.item .feriado{
+  color:#b91c1c;
+  font-weight:900;
+}
 
 /* NUTRICIÓN */
 .nutricion{
-  margin-top:16px;
+  margin-top:22px;
   background:linear-gradient(135deg,#ffffff,#f3fff0);
   border-radius:var(--radius-xl);
-  padding:16px;
+  padding:20px;
   text-align:center;
   box-shadow:var(--shadow);
+  border:1px solid rgba(52,199,89,.15);
 }
 .nutricion h2{
   font-size:1.2rem;
   font-weight:900;
   background:linear-gradient(90deg,var(--green),var(--blue));
   -webkit-background-clip:text;
+  background-clip:text;
   color:transparent;
 }
 .nutricion p{
@@ -282,13 +368,16 @@ body{
   margin-top:6px;
 }
 
-footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font-weight:600;}
+footer{text-align:center;margin-top:16px;font-size:.8rem;color:var(--muted);font-weight:600;}
 
 @media (max-width: 420px){
   .cover img{height:185px;}
-  .tabs{gap:8px;margin-bottom:16px;}
-  .tab{padding:10px 8px;font-size:.84rem;}
-  .price{font-size:.76rem;padding:6px 8px;margin-left:12px;}
+  .tabs{gap:6px;padding:5px;}
+  .tab{padding:10px 6px;font-size:.78rem;gap:3px;}
+  .tab .tab-ico{font-size:.9rem;}
+  .price{font-size:.74rem;padding:5px 9px;margin-left:8px;}
+  .section-head h2{font-size:1.05rem;}
+  .item{font-size:.88rem;padding:8px 4px;}
 }
 </style>
 </head>
@@ -322,13 +411,17 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
 
   <section class="section">
     <div class="section-head">
-      <h2>Platillos de la cooperativa</h2>
+      <div class="icon-badge">🍽️</div>
+      <div>
+        <h2>Platillos de la cooperativa</h2>
+        <p>Elige tu opción favorita del día</p>
+      </div>
     </div>
 
     <div class="tabs">
-      <div class="tab active" data-panel="panel-desayunos">Desayunos</div>
-      <div class="tab" data-panel="panel-comidas">Comidas</div>
-      <div class="tab" data-panel="panel-snacks">Snacks y Bebidas</div>
+      <div class="tab active" data-panel="panel-desayunos"><span class="tab-ico">🌅</span> Desayunos</div>
+      <div class="tab" data-panel="panel-comidas"><span class="tab-ico">🍲</span> Comidas</div>
+      <div class="tab" data-panel="panel-snacks"><span class="tab-ico">🥤</span> Snacks y Bebidas</div>
     </div>
 
     <!-- DESAYUNOS -->
@@ -450,7 +543,7 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
       </div>
     </div>
 
-    <!-- COMIDAS - ACTUALIZADO -->
+    <!-- COMIDAS -->
     <div class="panel" id="panel-comidas">
       <div class="menu-grid">
         <div class="day-card">
@@ -464,7 +557,7 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <span class="day-pill">LUNES</span>
+                    <span class="day-pill">Lunes</span>
                     <div style="margin-top:6px;"><strong>Comida:</strong> Filete de pollo con sopa de arroz y zanahoria</div>
                   </div>
                 </div>
@@ -476,7 +569,7 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <span class="day-pill">MARTES</span>
+                    <span class="day-pill">Martes</span>
                     <div style="margin-top:6px;"><strong>Comida:</strong> Lentejas con arroz y verdura</div>
                   </div>
                 </div>
@@ -488,7 +581,7 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <span class="day-pill">MIÉRCOLES</span>
+                    <span class="day-pill">Miércoles</span>
                     <div style="margin-top:6px;"><strong>Comida:</strong> Ensalada de atún con verdura, galletas saladas</div>
                   </div>
                 </div>
@@ -500,7 +593,7 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <span class="day-pill">JUEVES</span>
+                    <span class="day-pill">Jueves</span>
                     <div style="margin-top:6px;"><strong>Comida:</strong> Tiras de pollo con espagueti</div>
                   </div>
                 </div>
@@ -512,7 +605,7 @@ footer{text-align:center;margin-top:14px;font-size:.8rem;color:var(--muted);font
                 <div class="item-left">
                   <span class="bullet"></span>
                   <div>
-                    <span class="day-pill">VIERNES</span>
+                    <span class="day-pill">Viernes</span>
                     <div style="margin-top:6px;"><strong>Comida:</strong> Papitas en salsa de jitomate con pollo</div>
                   </div>
                 </div>
